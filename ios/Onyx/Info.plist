@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,19 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>IntegralCF-Bold.otf</string>
+		<string>IntegralCF-DemiBold.otf</string>
+		<string>IntegralCF-ExtraBold.otf</string>
+		<string>IntegralCF-Heavy.otf</string>
+		<string>IntegralCF-Medium.otf</string>
+		<string>IntegralCF-Regular.otf</string>
+		<string>Bebas.ttf</string>
+		<string>Poppins.ttf</string>
+		<string>Sen-Bold.ttf</string>
+		<string>Sen-ExtraBold.ttf</string>
+		<string>Sen.ttf</string>
+	</array>
 </dict>
 </plist>

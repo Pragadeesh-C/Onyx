@@ -14,6 +14,17 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Onyx-OnyxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Onyx-OnyxTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		4BCF0224DDF14DFC9283BCA5 /* IntegralCF-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F45F35953CC4443A1683C57 /* IntegralCF-Bold.otf */; };
+		69C3086595CC4DBFAF772624 /* IntegralCF-DemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9FFA30795E34A7BAD071BC6 /* IntegralCF-DemiBold.otf */; };
+		C49E6B9A0A0F430B821BCC66 /* IntegralCF-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 479C2A1B847D4078B2DADF91 /* IntegralCF-ExtraBold.otf */; };
+		0508108F3DA844B2BC6FBD13 /* IntegralCF-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC188B4183CA46798A2EA1B8 /* IntegralCF-Heavy.otf */; };
+		920D2806C30743868F84771F /* IntegralCF-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1668DEB32DB34FEEBA1259A8 /* IntegralCF-Medium.otf */; };
+		83BF3649334E4AE8800DCB64 /* IntegralCF-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C34C178EE4864D658429FEBE /* IntegralCF-Regular.otf */; };
+		05122CA12B7F4950ABF79BC8 /* Bebas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2099BDB452154C1195CFF84D /* Bebas.ttf */; };
+		5BA6D44B388F492BA37248A8 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F44921B419A4787B86C2262 /* Poppins.ttf */; };
+		FD19885B870049199C2CF6B3 /* Sen-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 48FB1494CEE54D24A7DDDCCF /* Sen-Bold.ttf */; };
+		2C024E45CD6B4E02883AE213 /* Sen-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA2BD5C278414ED683B9A669 /* Sen-ExtraBold.ttf */; };
+		3DDA10AE70BF4448B238D41B /* Sen.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4C790EFA6057404A8107B952 /* Sen.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +55,17 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Onyx/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Onyx-OnyxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onyx-OnyxTests.release.xcconfig"; path = "Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		7F45F35953CC4443A1683C57 /* IntegralCF-Bold.otf */ = {isa = PBXFileReference; name = "IntegralCF-Bold.otf"; path = "../src/assets/fonts/IntegralCF-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B9FFA30795E34A7BAD071BC6 /* IntegralCF-DemiBold.otf */ = {isa = PBXFileReference; name = "IntegralCF-DemiBold.otf"; path = "../src/assets/fonts/IntegralCF-DemiBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		479C2A1B847D4078B2DADF91 /* IntegralCF-ExtraBold.otf */ = {isa = PBXFileReference; name = "IntegralCF-ExtraBold.otf"; path = "../src/assets/fonts/IntegralCF-ExtraBold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BC188B4183CA46798A2EA1B8 /* IntegralCF-Heavy.otf */ = {isa = PBXFileReference; name = "IntegralCF-Heavy.otf"; path = "../src/assets/fonts/IntegralCF-Heavy.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1668DEB32DB34FEEBA1259A8 /* IntegralCF-Medium.otf */ = {isa = PBXFileReference; name = "IntegralCF-Medium.otf"; path = "../src/assets/fonts/IntegralCF-Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C34C178EE4864D658429FEBE /* IntegralCF-Regular.otf */ = {isa = PBXFileReference; name = "IntegralCF-Regular.otf"; path = "../src/assets/fonts/IntegralCF-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2099BDB452154C1195CFF84D /* Bebas.ttf */ = {isa = PBXFileReference; name = "Bebas.ttf"; path = "../src/assets/fonts/Bebas.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2F44921B419A4787B86C2262 /* Poppins.ttf */ = {isa = PBXFileReference; name = "Poppins.ttf"; path = "../src/assets/fonts/Poppins.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		48FB1494CEE54D24A7DDDCCF /* Sen-Bold.ttf */ = {isa = PBXFileReference; name = "Sen-Bold.ttf"; path = "../src/assets/fonts/Sen-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		BA2BD5C278414ED683B9A669 /* Sen-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Sen-ExtraBold.ttf"; path = "../src/assets/fonts/Sen-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4C790EFA6057404A8107B952 /* Sen.ttf */ = {isa = PBXFileReference; name = "Sen.ttf"; path = "../src/assets/fonts/Sen.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +144,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				93845A37EDA846D7B4B7D332 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +170,25 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		93845A37EDA846D7B4B7D332 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				7F45F35953CC4443A1683C57 /* IntegralCF-Bold.otf */,
+				B9FFA30795E34A7BAD071BC6 /* IntegralCF-DemiBold.otf */,
+				479C2A1B847D4078B2DADF91 /* IntegralCF-ExtraBold.otf */,
+				BC188B4183CA46798A2EA1B8 /* IntegralCF-Heavy.otf */,
+				1668DEB32DB34FEEBA1259A8 /* IntegralCF-Medium.otf */,
+				C34C178EE4864D658429FEBE /* IntegralCF-Regular.otf */,
+				2099BDB452154C1195CFF84D /* Bebas.ttf */,
+				2F44921B419A4787B86C2262 /* Poppins.ttf */,
+				48FB1494CEE54D24A7DDDCCF /* Sen-Bold.ttf */,
+				BA2BD5C278414ED683B9A669 /* Sen-ExtraBold.ttf */,
+				4C790EFA6057404A8107B952 /* Sen.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +286,17 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				4BCF0224DDF14DFC9283BCA5 /* IntegralCF-Bold.otf in Resources */,
+				69C3086595CC4DBFAF772624 /* IntegralCF-DemiBold.otf in Resources */,
+				C49E6B9A0A0F430B821BCC66 /* IntegralCF-ExtraBold.otf in Resources */,
+				0508108F3DA844B2BC6FBD13 /* IntegralCF-Heavy.otf in Resources */,
+				920D2806C30743868F84771F /* IntegralCF-Medium.otf in Resources */,
+				83BF3649334E4AE8800DCB64 /* IntegralCF-Regular.otf in Resources */,
+				05122CA12B7F4950ABF79BC8 /* Bebas.ttf in Resources */,
+				5BA6D44B388F492BA37248A8 /* Poppins.ttf in Resources */,
+				FD19885B870049199C2CF6B3 /* Sen-Bold.ttf in Resources */,
+				2C024E45CD6B4E02883AE213 /* Sen-ExtraBold.ttf in Resources */,
+				3DDA10AE70BF4448B238D41B /* Sen.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
