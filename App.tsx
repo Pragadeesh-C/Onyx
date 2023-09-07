@@ -5,6 +5,7 @@ import Splash from 'container/Splash';
 import SignUp from 'container/SignUp';
 import SignIn from 'container/SignIn';
 import Onboarding from 'components/Onboarding';
+import Progressbar from 'components/Progressbar';
 import Gender from 'container/OnboardingScreens/Gender';
 import { Routes } from 'routes/Routes';
 import Age from 'container/OnboardingScreens/Age';
@@ -28,6 +29,12 @@ const App = () => {
       </Stack.Navigator>
     </NavigationContainer>
     // <Onboarding/>
+    // <View style={{flex:1,alignItems:"center",justifyContent:'center',flexDirection:'row'}}>
+
+    // <Progressbar pro={0.9} pro1={0.9} title={'Distance'} value={'3550'} units={'m'}/>
+    // <Progressbar pro={0.9} pro1={0.9} title={'Distance'} value={'3550'}/>
+    // <Progressbar pro={0.9} pro1={0.9} title={'Distance'} value={'3550'}/>
+    // </View>
   )
 }
 
