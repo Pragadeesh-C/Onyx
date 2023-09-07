@@ -1,26 +1,34 @@
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import { Dimensions, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useState } from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { useNavigation } from '@react-navigation/native'
+import { Routes } from 'routes/Routes'
 
 const SignUp = () => {
+    const [name,setName] = useState('');
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+    const {navigate} = useNavigation();
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Hey there,</Text>
             <Text style={styles.headText}>Create an Account</Text>
             <View style={styles.textBoxContainer}>
-                <TextInput placeholder='Name' style={styles.textInput} placeholderTextColor={'#ADA4A5'} />
+                <TextInput placeholder='Name' style={styles.textInput} placeholderTextColor={'#ADA4A5'} value={name} onChangeText={(name) => setName(name)}/>
                 <AntDesign name={'user'} size={20} style={styles.icon} />
             </View>
             <View style={styles.textBoxContainer}>
-                <TextInput placeholder='Email' style={styles.textInput} placeholderTextColor={'#ADA4A5'} />
+                <TextInput placeholder='Email' style={styles.textInput} placeholderTextColor={'#ADA4A5'} value={email} onChangeText={(email) => setEmail(email)}/>
                 <Ionicons name={'mail-outline'} size={20} style={styles.icon} />
             </View>
             <View style={styles.textBoxContainer}>
-                <TextInput placeholder='Password' secureTextEntry={true} style={styles.textInput} placeholderTextColor={'#ADA4A5'} />
+                <TextInput placeholder='Password' secureTextEntry={true} style={styles.textInput} placeholderTextColor={'#ADA4A5'} value={password} onChangeText={(pass) => setPassword(pass)}/>
                 <Ionicons name={'lock-closed-outline'} size={20} style={styles.icon} />
+
             </View>
-            <TouchableOpacity style={styles.button} >
+            <TouchableOpacity style={styles.button} onPress={() => navigate(Routes.Gender)}>
                 <Text style={styles.buttonText}>Register</Text>
             </TouchableOpacity>
             <View style={styles.borderOr}>
@@ -34,7 +42,7 @@ const SignUp = () => {
             </View>
             <View style={styles.foot}>
                 <Text style={styles.footText}>Already have an account?</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigate(Routes.SignIn)}>
                     <Text style={styles.footButtonText}>Login</Text>
                 </TouchableOpacity>
             </View>
@@ -46,8 +54,8 @@ export default SignUp
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: 'white',
+        flex:1,
+        backgroundColor: '#F6F6F6'
     },
     text: {
         color: '#1D1617',
@@ -78,7 +86,7 @@ const styles = StyleSheet.create({
         left: 10
     },
     textInput: {
-        flex: 1,
+        flex:1,
         backgroundColor: '#F7F8F8',
         borderRadius: 10,
         paddingLeft: 40,
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
     button: {
         height: 60,
         width: '90%',
-        marginTop: '35%',
+        marginTop: '40%',
         backgroundColor: '#92A3FD',
         borderRadius: 30,
         justifyContent: 'center',
