@@ -13,6 +13,15 @@ const Onboarding = () => {
   }
   ).current;
   const slidesRef=useRef(null);
+  const scrollTo=()=>{
+    if (currentIndex<slides.length-1){
+      slidesRef.current.scrollToIndex({index:currentIndex+1});
+
+    }
+    else{
+      console.log('last item')
+    }
+  };
   // const viewconfig=useRef({viewAreaCoveragePercentThreshold:50}).current;
   return (
     <View style={styles.container}>
@@ -32,8 +41,8 @@ const Onboarding = () => {
           ref={slidesRef}
           />
       </View>
-      <Paginator data={slides} scrollx={scrollx}/>
-      <NextButton percentage={(currentIndex+1)*(100/slides.length)}/>
+      {/* <Paginator data={slides} scrollx={scrollx}/> */}
+      <NextButton scrollTo={scrollTo} percentage={(currentIndex+1)*(100/slides.length)} />
     </View>
   )
 }
@@ -42,8 +51,6 @@ const styles=StyleSheet.create({
   
   container:{
         flex:1,
-        alignItems:'center',
-        justifyContent:"center",
     },
 
 })

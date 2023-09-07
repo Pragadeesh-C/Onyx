@@ -6,7 +6,7 @@ const {width}=useWindowDimensions();
   return (
     <View style={[StyleSheet.container,{width}]}>
       <Image source={item.image} style={[styles.image,{width}]}/>
-      <View style={{flex:0.3}}>
+      <View style={styles.content}>
         <Text style={styles.title}>{item.title}</Text>
         <Text style={styles.description}>{item.description}</Text>
       </View>
@@ -17,27 +17,37 @@ const styles=StyleSheet.create({
 
     container:{
         flex:1,
-        alignItems:'center',
-        justifyContent:'center',
+        // alignItems:'flex-end',
+        // justifyContent:'center',
     },
     image:{
-        flex:0.7,
+        
         // height:'40px',
-        paddingBottom:0,
-        resizeMode:'contain',
+        // paddingBottom:0,
+        resizeMode:'stretch',
     },
 
     title:{
         fontWeight:'800',
-        fontSize:28,
+        fontSize:26,
         marginBottom:10,
-        color:'#493d8a',
-        textAlign:'center',
+        color:'#1D1617',
+        textAlign:'left',
+        fontFamily:'popins',
+        paddingHorizontal:34,
+        paddingTop:40,
     },
     description:{
         fontWeight:'300',
-        color:'#62656b',
-        textAlign:'center',
-        paddingHorizontal:64,
-    }
+        color:'#7B6F72',
+        textAlign:'left',
+        fontSize:15,
+        paddingHorizontal:34,
+        fontFamily:'popins',
+
+    },
+    content:{
+
+
+    },
 })

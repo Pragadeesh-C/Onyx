@@ -1,26 +1,20 @@
 export default[
     {
     id:'1',
-    title:'Your Personal Fitness Coach',
-    description:"Your fitness companion for personalized workouts, nutrition plans, and expert guidance",
-    image: require('../assets/images/image1.png'),
+    title:'Your Personal Coach',
+    description:"Don't worry if you have trouble determining your goals, We can help you determine your goals and track your goals",
+    image: require('../assets/images/Frame2.png'),
 },
     {
     id:'2',
-    title:'Customized Workout Plans',
+    title:'Get Burn',
     description:"Tailored workouts that adapt to your fitness level and preferences",
-    image: require('../assets/images/image1.png'),
+    image: require('../assets/images/Frame.png'),
 },
     {
     id:'3',
-    title:'Nutrition Guidance & Meal Planning',
+    title:'Eat Well',
     description:"Nutritious meal plans and expert advice for a balanced approach to eating",
-    image: require('../assets/images/image1.png'),
-},
-    {
-    id:'4',
-    title:'Real-Time Feedback & Support',
-    description:"Get real-time workout feedback and expert support for your fitness journey",
-    image: require('../assets/images/image1.png'),
+    image: require('../assets/images/Frame1.png'),
 },
 ];
