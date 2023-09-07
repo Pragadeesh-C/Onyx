@@ -4,9 +4,14 @@ import { useNavigation } from '@react-navigation/native';
 import { DatePicker, Picker } from 'react-native-wheel-pick';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Routes } from 'routes/Routes';
+import { StackNavigationProp } from '@react-navigation/stack';
+
+export type RootStackParamList = {
+  age: { age: string } | undefined;
+};
 
 const Age = ({ route }:any) => {
-  const { navigate } = useNavigation();
+  const { navigate } = useNavigation<StackNavigationProp<RootStackParamList>>();
   const gender = route.params.gender;
   const pickerData = Array.from({ length: 120 }, (_, index) => (index + 1).toString());
   const [age,setAge] = useState<number>(10);
@@ -27,9 +32,9 @@ const Age = ({ route }:any) => {
         onValueChange={(value: React.SetStateAction<number>) => {setAge(value)}}
         />
         </View>
-      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Weight, {
-                'age': age
-            })}>
+      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Weight as never, {
+                age: age
+            } as never)}>
                 <Text style={styles.buttonText}>Next</Text>
                 <MaterialIcons name='arrow-right' size={20} color={'white'} />
             </TouchableOpacity>

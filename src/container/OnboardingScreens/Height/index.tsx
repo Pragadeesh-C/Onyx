@@ -28,11 +28,11 @@ const Height = ({ route }: any) => {
           onValueChange={(value: React.SetStateAction<number>) => { setHeight(value) }}
         />
       </View>
-      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Goal, {
+      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Goal as never, {
         'age':age,
         'weight':weight,
         'height': height
-      })}>
+      } as never)}>
         <Text style={styles.buttonText}>Next</Text>
         <MaterialIcons name='arrow-right' size={20} color={'white'} />
       </TouchableOpacity>

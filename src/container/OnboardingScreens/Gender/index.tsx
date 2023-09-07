@@ -43,9 +43,9 @@ const Gender = () => {
                     <Text style={[styles.genderText, femaleClicked ? { color: 'white' } : {}]}>Female</Text>
                 </TouchableOpacity>
             </View>
-            <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Age, {
+            <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Age as never, {
                 'gender': gender
-            })}>
+            } as never)}>
                 <Text style={styles.buttonText}>Next</Text>
                 <MaterialIcons name='arrow-right' size={20} color={'white'} />
             </TouchableOpacity>
