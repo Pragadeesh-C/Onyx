@@ -19,7 +19,12 @@ const App = () => {
     //   </Stack.Navigator>
     // </NavigationContainer>
     // <Onboarding/>
-    <Progressbar pro={0.7}/>
+    <View style={{flex:1,alignItems:"center",justifyContent:'center',flexDirection:'row'}}>
+
+    <Progressbar pro={0.9} pro1={0.9} title={'Distance'} value={'3550'} units={'m'}/>
+    <Progressbar pro={0.9} pro1={0.9} title={'Distance'} value={'3550'}/>
+    <Progressbar pro={0.9} pro1={0.9} title={'Distance'} value={'3550'}/>
+    </View>
   )
 }
 
