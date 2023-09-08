@@ -7,8 +7,6 @@ import { Routes } from 'routes/Routes';
 
 const Weight = ({ route }: any) => {
   const { navigate } = useNavigation();
-  const age = route.params.age;
-  console.log(age)
   const pickerData = Array.from({ length: 200 }, (_, index) => (index + 1).toString());
   const [weight, setWeight] = useState<number>(20);
 
@@ -29,7 +27,7 @@ const Weight = ({ route }: any) => {
         />
       </View>
       <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Height as never, {
-        'age':age,
+        ...route.params,
         'weight': weight
       } as never)}>
         <Text style={styles.buttonText}>Next</Text>

@@ -6,5 +6,11 @@ export const Routes = {
     Age:'Age',
     Height:'Height',
     Weight:'Weight',
-    Goal:'Goal'
+    Goal:'Goal',
+    Home:'Home',
+    Workout:'Workout',
+    Analytics:'Analytics',
+    Nutrients:'Nutrients',
+    Profile:'Profile',
+    Tabs:'Tabs'
 }

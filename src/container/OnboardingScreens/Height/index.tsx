@@ -29,8 +29,7 @@ const Height = ({ route }: any) => {
         />
       </View>
       <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Goal as never, {
-        'age':age,
-        'weight':weight,
+        ...route.params,
         'height': height
       } as never)}>
         <Text style={styles.buttonText}>Next</Text>

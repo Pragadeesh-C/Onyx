@@ -3,11 +3,20 @@ import React, { useState } from 'react'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { Routes } from 'routes/Routes'
 import { useNavigation } from '@react-navigation/native'
+import auth from '@react-native-firebase/auth'
 
 const SignIn = () => {
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const {navigate} = useNavigation();
+
+    const SignIn = async() => {
+        await auth().signInWithEmailAndPassword(email,password).then(() => {
+            navigate(Routes.Tabs as never) 
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
     return (
         <View style={styles.container}>
@@ -22,7 +31,7 @@ const SignIn = () => {
                 <Ionicons name={'lock-closed-outline'} size={20} style={styles.icon} />
             </View>
             <Text style={styles.forgotText}>Forgot your password?</Text>
-            <TouchableOpacity style={styles.button} >
+            <TouchableOpacity style={styles.button} onPress={SignIn}>
                 <Image source={require('images/Login.png')} />
                 <Text style={styles.buttonText}>Login</Text>
             </TouchableOpacity>
@@ -37,7 +46,7 @@ const SignIn = () => {
             </View>
             <View style={styles.foot}>
                 <Text style={styles.footText}>Don't have an account?</Text>
-                <TouchableOpacity onPress={() => navigate(Routes.SignUp)}>
+                <TouchableOpacity onPress={() => navigate(Routes.SignUp as never)}>
                     <Text style={styles.footButtonText}>Register</Text>
                 </TouchableOpacity>
             </View>

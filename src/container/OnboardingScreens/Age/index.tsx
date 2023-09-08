@@ -33,7 +33,8 @@ const Age = ({ route }:any) => {
         />
         </View>
       <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Weight as never, {
-                age: age
+                ...route.params,
+                'age':age
             } as never)}>
                 <Text style={styles.buttonText}>Next</Text>
                 <MaterialIcons name='arrow-right' size={20} color={'white'} />

@@ -4,16 +4,35 @@ import { useNavigation } from '@react-navigation/native';
 import { DatePicker, Picker } from 'react-native-wheel-pick';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Routes } from 'routes/Routes';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const Goal = ({ route }: any) => {
     const { navigate } = useNavigation();
-    const { age, weight, height } = route.params;
+    const {gender, age, weight, height } = route.params;
     const pickerData = ['Lose weight', 'Get Fitter', 'Gain Weight']
     const [goal, setGoal] = useState<string | undefined>();
+    const user = auth().currentUser.email;
+    console.log(user)
+
+    const pushData = async() => {
+        await firestore().collection('UsersData').doc(user).set({
+            email:user,
+            gender:gender,
+            age:age,
+            weight:weight,
+            height:height,
+            goal:goal
+        }).then(() => {
+            navigate(Routes.Tabs as never)
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
 
     return (
         <View style={styles.container}>
-            <Text style={styles.headerText}>What's your height</Text>
+            <Text style={styles.headerText}>What's your goal</Text>
             <Text style={styles.headerDesc}>this helps us create your personalized plan</Text>
             <View style={{ height: '70%', justifyContent: 'center' }}>
                 <Picker
@@ -27,12 +46,7 @@ const Goal = ({ route }: any) => {
                     onValueChange={(value: React.SetStateAction<string | undefined>) => { setGoal(value) }}
                 />
             </View>
-            <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Goal as never, {
-                'age': age,
-                'weight': weight,
-                'height': height,
-                'goal': goal
-            }as never)}>
+            <TouchableOpacity style={styles.nextButton} onPress={pushData}>
                 <Text style={styles.buttonText}>Next</Text>
                 <MaterialIcons name='arrow-right' size={20} color={'white'} />
             </TouchableOpacity>
