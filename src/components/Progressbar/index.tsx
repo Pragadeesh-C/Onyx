@@ -1,7 +1,6 @@
 import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import * as Progress from 'react-native-progress';
-import Svg, {G, Circle} from 'react-native-svg';
 
 const Progressbar = ({pro, pro1, value, title,units}) => {
   const [loading, setLoading] = useState(true);
