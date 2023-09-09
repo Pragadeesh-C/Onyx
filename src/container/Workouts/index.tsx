@@ -74,7 +74,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#D0FD3E',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 20,
-    alignSelf: 'center',
   },
+  exerciseType: {
+    fontFamily: 'Sen-Bold',
+    color: 'black',
+  },
+  setsComponent: {
+    height: 35,
+    width: 70,
+    borderRadius: 20,
+    borderWidth: 1.5,
+    borderColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  // headerText:{
+  //   fontFamily:'IntegralCF-Bold',
+  //   fontSize:16,
+  //   color:'black'
+  // },
+  // headerDesc:{
+  //   fontFamily:'IntegralCF',
+  //   color:'black'
+  // }
 });
