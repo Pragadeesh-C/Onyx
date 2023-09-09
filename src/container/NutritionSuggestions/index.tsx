@@ -1,15 +1,16 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import FoodCardComponent from 'components/FoodCardComponent';
+import { Diet } from 'data/diet';
 
 const NutritionSuggestion = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>NutritionSuggestion</Text>
       <View style={{gap: 20}}>
-        <FoodCardComponent />
-        <FoodCardComponent />
-        <FoodCardComponent />
+       {Diet.map((index,value) => (
+        <FoodCardComponent name={index.name} calories={index.calories} imageUrl={index.image} /> 
+       ))}
       </View>
     </View>
   );
