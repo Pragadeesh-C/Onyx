@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "241461455272",
+    "project_id": "onyx-52b65",
+    "storage_bucket": "onyx-52b65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241461455272:android:d397144d901ea2d5fe159d",
+        "android_client_info": {
+          "package_name": "com.onyx"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241461455272-ahs3873qqff2gie0qjl9l2da8cec7g7d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.onyx",
+            "certificate_hash": "ae54079d9f6369e5107a554453804baa0b5138bb"
+          }
+        },
+        {
+          "client_id": "241461455272-n3j8o58tl87ib0d2i3d53v6utdb0kpkd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdvtFtJ3l6aWB90X-fpwwpRN7GVuEnHFE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241461455272-n3j8o58tl87ib0d2i3d53v6utdb0kpkd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
