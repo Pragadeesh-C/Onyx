@@ -40,8 +40,6 @@ import {
     };
     return (
       <View style={styles.container}>
-        {/* <Text style={styles.headerDesc}>TOo much protein? no whey, mate!</Text>
-        <Text style={styles.headerText}>Choose a training{'\n'}for today</Text> */}
         <ImageBackground source={IMAGES.workoutBg} style={styles.bg}>
           <View style={styles.headerView}>
             <CircularProgress

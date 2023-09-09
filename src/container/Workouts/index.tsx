@@ -1,15 +1,12 @@
-import {
-  Image,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import TrainingLevel from 'components/TrainingLevel';
 import {IMAGES} from 'images/images';
+import {useNavigation} from '@react-navigation/native';
+import {Routes} from 'routes/Routes';
 
 const Workout = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.container}>
       <Text style={styles.headerDesc}>Too much protein? no whey, mate!</Text>
@@ -18,7 +15,9 @@ const Workout = () => {
       <Image source={IMAGES.workoutbg} style={styles.semiCircle} />
       <TrainingLevel />
       {/* <View style={styles.bottomView}> */}
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.nextButton}
+        onPress={() => navigation.navigate(Routes.WorkoutPrompt as never)}>
         <Text style={{fontFamily: 'Sen-Bold', color: 'black', fontSize: 17}}>
           Readiness Check
         </Text>
@@ -33,7 +32,7 @@ export default Workout;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:'#F6F6F6'
+    backgroundColor: '#F6F6F6',
   },
   bottomView: {
     flex: 1,
@@ -68,12 +67,15 @@ const styles = StyleSheet.create({
     color: 'black',
     paddingLeft: 10,
   },
-  button: {
+  nextButton: {
     height: 40,
     width: 200,
     backgroundColor: '#D0FD3E',
     justifyContent: 'center',
     alignItems: 'center',
+    bottom: 40,
+    borderRadius: 20,
+    alignSelf: 'center',
   },
   exerciseType: {
     fontFamily: 'Sen-Bold',
