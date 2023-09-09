@@ -29,8 +29,8 @@ const BottomTabNavigator = () => {
           
         />
         <Tab.Screen
-          name={Routes.WorkoutStart}
-          component={StartWorkout}
+          name={Routes.Workout}
+          component={Workout}
           options={{
                 headerShown:false,
                 tabBarIcon: ({color, size}) => (
@@ -60,7 +60,7 @@ const BottomTabNavigator = () => {
         />
         <Tab.Screen
           name={Routes.Profile}
-          component={Profile}
+          component={StartWorkout}
           options={{
             headerShown:false,
             tabBarIcon: ({color, size}) => (
