@@ -54,7 +54,7 @@ const BottomTabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name={Routes.Nutrients}
+        name={Routes.NutrientsSuggestion}
         component={TopTabNavigator}
         options={{
           headerShown: false,

@@ -5,7 +5,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IngredientsImage from 'components/IngredientsImage';
 import { IMAGES } from 'images/images';
 
-const NutrientsPlan = () => {
+const NutrientsPlan = ({route}) => {
+  const {calories,fat,carbs,imageUrl,desc,name,protein} = route.params
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Nutrients Plan</Text>
@@ -26,44 +27,38 @@ const NutrientsPlan = () => {
       />
       <View style={styles.foodDetailsView}>
         <View style={{width: 160}}>
-          <Image source={require('images/food.png')} style={styles.foodImg} />
+          <Image source={imageUrl} style={styles.foodImg} />
         </View>
         <View style={styles.foodDetailsComponent}>
           <View style={styles.foodDetails}>
             <Text style={styles.foodDetailsHead}>Calories</Text>
-            <Text style={styles.foodDetailsDesc}>190 kcal</Text>
+            <Text style={styles.foodDetailsDesc}>{calories} kcal</Text>
           </View>
           <View style={styles.foodDetails}>
             <Text style={styles.foodDetailsHead}>Protein</Text>
-            <Text style={styles.foodDetailsDesc}>87 g</Text>
+            <Text style={styles.foodDetailsDesc}>{protein} g</Text>
           </View>
         </View>
         <View style={styles.foodDetailsComponent}>
           <View style={styles.foodDetails}>
             <Text style={styles.foodDetailsHead}>Fat</Text>
-            <Text style={styles.foodDetailsDesc}>65 g</Text>
+            <Text style={styles.foodDetailsDesc}>{fat} g</Text>
           </View>
           <View style={styles.foodDetails}>
             <Text style={styles.foodDetailsHead}>Carbs</Text>
-            <Text style={styles.foodDetailsDesc}>84 g</Text>
+            <Text style={styles.foodDetailsDesc}>{carbs} g</Text>
           </View>
         </View>
       </View>
       <Text style={styles.aboutFoodText}>About food</Text>
       <Text style={styles.foodDesc}>
-        Duis vestibulum risus nec sem auctor, sita amet fermentum odio mollis.
-        Vivamus eleifend, food a non volutpat venenotis, neque elit viver
-        healthy augue, in accumsan orci diam et augue. Nunc a sodales iaculis
-        congue. Nullam vita food salmon laoreet, maximus sapien nec,
-        sollicitudin dolor. Nunc interdum fermentum dolor nec an tempus. Nullam
-        pellentesque odio id libero bibendum, id sagittis leo vulputate. Donec
-        odio eros, healthy sollicitudin ut quam ut, suscipit aliquet neque
+        {desc}
       </Text>
-      <Text style={styles.ingredientsText}>Ingredients</Text>
+      {/* <Text style={styles.ingredientsText}>Ingredients</Text>
       <ScrollView style={styles.ingredientsContainer} horizontal showsHorizontalScrollIndicator>
         <IngredientsImage imageUrl={IMAGES.pepper} />
         <IngredientsImage imageUrl={IMAGES.broccoli} />
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 };

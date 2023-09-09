@@ -1,17 +1,27 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import FoodCardComponent from 'components/FoodCardComponent';
-import { Diet } from 'data/diet';
+import {Diet} from 'data/diet';
 
 const NutritionSuggestion = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>NutritionSuggestion</Text>
-      <View style={{gap: 20}}>
-       {Diet.map((index,value) => (
-        <FoodCardComponent name={index.name} calories={index.calories} imageUrl={index.image} /> 
-       ))}
-      </View>
+      <FlatList
+        data={Diet}
+        renderItem={({item}) => (
+          <FoodCardComponent
+            name={item.name}
+            calories={item.calories}
+            imageUrl={item.image}
+            desc={item.description}
+            carbs={item.carbs}
+            fat={item.fat}
+            protein={item.protein}
+          />
+        )}
+        style={{padding: 10}}
+      />
     </View>
   );
 };

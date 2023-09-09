@@ -14,6 +14,7 @@ import Home from 'container/Home';
 import BottomTabNavigator from 'navigation/BottomTabNavigator';
 import WorkoutPrompt from 'container/WorkoutPrompt';
 import StartWorkout from 'container/StartWorkout';
+import NutrientsPlan from 'container/NutrientsPlan';
 
 const StackNavigator = () => {
     const Stack = createStackNavigator();
@@ -30,6 +31,7 @@ const StackNavigator = () => {
         <Stack.Screen name={Routes.Tabs} component={BottomTabNavigator} />
         <Stack.Screen name={Routes.WorkoutPrompt} component={WorkoutPrompt} />
         <Stack.Screen name={Routes.WorkoutStart} component={StartWorkout} />
+        <Stack.Screen name={Routes.Nutrients} component={NutrientsPlan} />
       </Stack.Navigator>
   )
 }
