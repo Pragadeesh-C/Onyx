@@ -10,6 +10,7 @@ import {Routes} from 'routes/Routes';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+import StartWorkout from 'container/StartWorkout';
 
 
 const BottomTabNavigator = () => {
@@ -59,7 +60,7 @@ const BottomTabNavigator = () => {
         />
         <Tab.Screen
           name={Routes.Profile}
-          component={Profile}
+          component={StartWorkout}
           options={{
             headerShown:false,
             tabBarIcon: ({color, size}) => (

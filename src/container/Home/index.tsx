@@ -1,5 +1,6 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import { IMAGES } from 'images/images';
 
 const Home = () => {
   const name = 'Kakashi';
@@ -7,6 +8,7 @@ const Home = () => {
     <View style={styles.container}>
       <Text style={styles.headerText}>Hello, {name}</Text>
       <Text>My Plan</Text>
+      <Image source={IMAGES.workoutbg} style={{height:'50%',width:'100%'}}/>
     </View>
   );
 };
