@@ -12,5 +12,12 @@ export const Routes = {
     Analytics:'Analytics',
     Nutrients:'Nutrients',
     Profile:'Profile',
-    Tabs:'Tabs'
+    Tabs:'Tabs',
+    WorkoutStart:'WorkoutStart',
+    WorkoutPrompt:'WorkoutPrompt',
+    WorkoutPage:'WorkoutPage',
+    NutrientsSuggestion:'NutrientsSuggestion',
+    NutrientsPlan:'NutrientsPlan',
+    Veg:'Veg',
+    NonVeg:'Non Veg'
 }

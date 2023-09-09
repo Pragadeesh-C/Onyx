@@ -7,7 +7,7 @@ export const Diet = [
     protein: 20,
     carbs: 5,
     fat: 22,
-    image: require('../../assets/images/advanced.png'),
+    image: require('images/Scrabled_eggs.png'),
   },
   {
     name: 'Oatmeal',
@@ -17,6 +17,8 @@ export const Diet = [
     protein: 5,
     carbs: 50,
     fat: 2,
+    image: require('images/Oatmeals.png'),
+
   },
   {
     name: 'Grilled Chicken Salad',
@@ -26,6 +28,8 @@ export const Diet = [
     protein: 30,
     carbs: 15,
     fat: 18,
+    image: require('images/GrilledChickenSalad.png'),
+
   },
   {
     name: 'Vegetable Stir-Fry',
@@ -35,6 +39,7 @@ export const Diet = [
     protein: 10,
     carbs: 40,
     fat: 12,
+    image: require('images/Vegetable-Stir-Fry.png'),
   },
   {
     name: 'Chicken Biryani',
@@ -44,6 +49,7 @@ export const Diet = [
     protein: 25,
     carbs: 60,
     fat: 20,
+    image: require('images/chicken-Biryani.png'),
   },
   {
     name: 'Paneer Tikka',
@@ -53,6 +59,7 @@ export const Diet = [
     protein: 18,
     carbs: 15,
     fat: 25,
+    image: require('images/paneer_tikka.png'),
   },
   {
     name: 'Spinach and Chickpea Curry',
@@ -62,6 +69,7 @@ export const Diet = [
     protein: 15,
     carbs: 45,
     fat: 12,
+    image: require('images/Spinach-and-Chickpea-Curry.png'),
   },
   {
     name: 'Salmon with Asparagus',
@@ -71,6 +79,7 @@ export const Diet = [
     protein: 35,
     carbs: 10,
     fat: 28,
+    image: require('images/Salmon_with_Asparagus.png'),
   },
   {
     name: 'Greek Yogurt Parfait',
@@ -80,6 +89,7 @@ export const Diet = [
     protein: 12,
     carbs: 30,
     fat: 5,
+    image: require('images/Greek_Yogurt_Parfait.png'),
   },
   {
     name: 'Almonds',
@@ -89,6 +99,7 @@ export const Diet = [
     protein: 6,
     carbs: 4,
     fat: 13,
+    image: require('images/Almonds.png'),
   },
   {
     name: 'Avocado Toast',
@@ -98,6 +109,7 @@ export const Diet = [
     protein: 7,
     carbs: 30,
     fat: 25,
+    image: require('images/avocado-toast.png'),
   },
   {
     name: 'Turkey Sandwich',
@@ -107,6 +119,7 @@ export const Diet = [
     protein: 20,
     carbs: 45,
     fat: 15,
+    image: require('images/Turkey_Sandwich.png'),
   },
   {
     name: 'Quinoa Salad',
@@ -116,6 +129,7 @@ export const Diet = [
     protein: 10,
     carbs: 45,
     fat: 8,
+    image: require('images/Quinoa_Salad.png'),
   },
   {
     name: 'Beef Stir-Fry',
@@ -125,6 +139,8 @@ export const Diet = [
     protein: 30,
     carbs: 20,
     fat: 22,
+    image: require('images/Beef-Stir-Fry.png'),
+
   },
   {
     name: 'Chickpea Curry',
@@ -134,6 +150,8 @@ export const Diet = [
     protein: 12,
     carbs: 50,
     fat: 10,
+    image: require('images/Chickpea_Curry.png'),
+
   },
   {
     name: 'Greek Salad',
@@ -143,6 +161,8 @@ export const Diet = [
     protein: 8,
     carbs: 15,
     fat: 18,
+    image: require('images/Greek-Salad.png'),
+
   },
   {
     name: 'Salmon Sushi Roll',
@@ -152,6 +172,8 @@ export const Diet = [
     protein: 20,
     carbs: 40,
     fat: 12,
+    image: require('images/Salmon-Sushi-Roll.png'),
+
   },
   {
     name: 'Fruit Salad',
@@ -161,6 +183,8 @@ export const Diet = [
     protein: 2,
     carbs: 40,
     fat: 1,
+    image: require('images/Fruit-Salad.png'),
+
   },
   {
     name: 'Protein Shake',
@@ -170,6 +194,8 @@ export const Diet = [
     protein: 20,
     carbs: 10,
     fat: 5,
+    image: require('images/protein-shake.png'),
+
   },
   {
     name: 'Grilled Portobello Mushrooms',
@@ -179,6 +205,7 @@ export const Diet = [
     protein: 5,
     carbs: 8,
     fat: 9,
+    image: require('images/Grilled_Portobello_Mushrooms.png'),
   },
   {
     name: 'Pancakes',
@@ -188,6 +215,7 @@ export const Diet = [
     protein: 8,
     carbs: 60,
     fat: 15,
+    image: require('images/Pancakes.png'),
   },
   {
     name: 'Chicken Caesar Salad',
@@ -197,6 +225,8 @@ export const Diet = [
     protein: 25,
     carbs: 10,
     fat: 22,
+    image: require('images/Chicken_Caesar_Salad.png'),
+
   },
   {
     name: 'Veggie Burger',
@@ -206,6 +236,8 @@ export const Diet = [
     protein: 15,
     carbs: 35,
     fat: 10,
+    image: require('images/Veggie_Burger.png'),
+
   },
   {
     name: 'Beef Burrito',
@@ -215,6 +247,8 @@ export const Diet = [
     protein: 28,
     carbs: 60,
     fat: 25,
+    image: require('images/Beef_Burrito.png'),
+
   },
   {
     name: 'Tofu Stir-Fry',
@@ -224,6 +258,7 @@ export const Diet = [
     protein: 15,
     carbs: 30,
     fat: 18,
+    image: require('images/Tofu-Stir-Fry.png'),
   },
   {
     name: 'Yogurt and Berries',
@@ -233,6 +268,7 @@ export const Diet = [
     protein: 8,
     carbs: 30,
     fat: 4,
+    image: require('images/Yogurt_and_Berries.png'),
   },
   {
     name: 'Shrimp Scampi',
@@ -242,6 +278,7 @@ export const Diet = [
     protein: 25,
     carbs: 25,
     fat: 22,
+    image: require('images/Shrimp_Scampi.png'),
   },
   {
     name: 'Mixed Nuts',
@@ -251,6 +288,8 @@ export const Diet = [
     protein: 5,
     carbs: 10,
     fat: 15,
+    image: require('images/Mixed_Nuts.png'),
+
   },
   {
     name: 'Miso Soup',
@@ -260,6 +299,8 @@ export const Diet = [
     protein: 4,
     carbs: 10,
     fat: 5,
+    image: require('images/Miso_Soup.png'),
+
   },
   {
     name: 'Pork Tenderloin',
@@ -269,6 +310,8 @@ export const Diet = [
     protein: 30,
     carbs: 5,
     fat: 25,
+    image: require('images/Pork_Tenderloin.png'),
+
   },
   {
     name: 'French Toast',
@@ -278,6 +321,8 @@ export const Diet = [
     protein: 6,
     carbs: 45,
     fat: 16,
+    image: require('images/French_Toast.png'),
+
   },
   {
     name: 'Cobb Salad',
@@ -287,6 +332,8 @@ export const Diet = [
     protein: 20,
     carbs: 15,
     fat: 30,
+    image: require('images/Cobb_Salad.png'),
+
   },
   {
     name: 'Mushroom Risotto',
@@ -296,6 +343,8 @@ export const Diet = [
     protein: 8,
     carbs: 60,
     fat: 20,
+    image: require('images/Mushroom_Risotto.png'),
+
   },
   {
     name: 'BBQ Pulled Pork Sandwich',
@@ -305,6 +354,8 @@ export const Diet = [
     protein: 30,
     carbs: 50,
     fat: 25,
+    image: require('images/BBQ_Pulled_Pork_Sandwich.png'),
+
   },
   {
     name: 'Hummus and Veggie Wrap',
@@ -314,6 +365,8 @@ export const Diet = [
     protein: 10,
     carbs: 45,
     fat: 12,
+    image: require('images/Hummus and Veggie Wrap.png'),
+
   },
   {
     name: 'Grilled Swordfish',
@@ -323,6 +376,8 @@ export const Diet = [
     protein: 40,
     carbs: 10,
     fat: 20,
+    image: require('images/Grilled_Swordfish.png'),
+
   },
   {
     name: 'Caprese Salad',
@@ -332,6 +387,8 @@ export const Diet = [
     protein: 12,
     carbs: 10,
     fat: 18,
+    image: require('images/Caprese_Salad.png'),
+
   },
   {
     name: 'Pita Bread with Hummus',
@@ -341,6 +398,7 @@ export const Diet = [
     protein: 6,
     carbs: 30,
     fat: 8,
+    image: require('images/Pita_Bread_with_Hummus.png'),
   },
   {
     name: 'Lentil Soup',
@@ -350,6 +408,7 @@ export const Diet = [
     protein: 9,
     carbs: 20,
     fat: 4,
+    image: require('images/Lentil_Soup.png'),
   },
   {
     name: 'Beef Tacos',
@@ -359,6 +418,7 @@ export const Diet = [
     protein: 25,
     carbs: 40,
     fat: 20,
+    image: require('images/Beef_Tacos.png'),
   },
   {
     name: 'Dosa',
@@ -368,6 +428,7 @@ export const Diet = [
     protein: 3,
     carbs: 30,
     fat: 2,
+    image: require('images/Dosa.png'),
   },
   {
     name: 'Idli',
@@ -377,6 +438,7 @@ export const Diet = [
     protein: 2,
     carbs: 12,
     fat: 0,
+    image: require('images/Idli.png'),
   },
   {
     name: 'Sambhar',
@@ -386,6 +448,7 @@ export const Diet = [
     protein: 2,
     carbs: 18,
     fat: 1,
+    image: require('images/Sambhar.png'),
   },
   {
     name: 'Chicken Chettinad',
@@ -395,6 +458,7 @@ export const Diet = [
     protein: 20,
     carbs: 15,
     fat: 25,
+    image: require('images/Chicken_Chettinad.png'),
   },
   {
     name: 'Rasam',
@@ -404,6 +468,7 @@ export const Diet = [
     protein: 1,
     carbs: 10,
     fat: 1,
+    image: require('images/rasam.png'),
   },
   {
     name: 'Pongal',
@@ -413,6 +478,7 @@ export const Diet = [
     protein: 5,
     carbs: 50,
     fat: 2,
+    image: require('images/pongal.png'),
   },
   {
     name: 'Fish Curry',
@@ -422,6 +488,7 @@ export const Diet = [
     protein: 15,
     carbs: 10,
     fat: 20,
+    image: require('images/Fish_Curry.png'),
   },
   {
     name: 'Mutton Biriyani',
@@ -431,6 +498,7 @@ export const Diet = [
     protein: 30,
     carbs: 60,
     fat: 22,
+    image: require('images/Mutton_Biriyani.png'),
   },
   {
     name: 'Coconut Chutney',
@@ -440,6 +508,7 @@ export const Diet = [
     protein: 1,
     carbs: 5,
     fat: 4,
+    image: require('images/Coconut_Chutney.png'),
   },
   {
     name: 'Masala Dosa',
@@ -449,6 +518,7 @@ export const Diet = [
     protein: 5,
     carbs: 45,
     fat: 12,
+    image: require('images/Dosa.png'),
   },
   {
     name: 'Vada',
@@ -458,15 +528,7 @@ export const Diet = [
     protein: 2,
     carbs: 15,
     fat: 6,
-  },
-  {
-    name: 'Parotta',
-    type: 'breakfast',
-    vegetarian: true,
-    calories: 200,
-    protein: 3,
-    carbs: 30,
-    fat: 8,
+    image: require('images/Vada.png'),
   },
   {
     name: 'Curd Rice',
@@ -476,6 +538,7 @@ export const Diet = [
     protein: 5,
     carbs: 40,
     fat: 7,
+    image: require('images/Curd-Rice.png'),
   },
   {
     name: 'Paniyaram',
@@ -485,6 +548,7 @@ export const Diet = [
     protein: 3,
     carbs: 25,
     fat: 4,
+    image: require('images/Paniyaram.png'),
   },
   {
     name: 'Avial',
@@ -494,6 +558,7 @@ export const Diet = [
     protein: 2,
     carbs: 15,
     fat: 5,
+    image: require('images/Avial.png'),
   },
   {
     name: 'Meen Kuzhambu',
@@ -503,6 +568,7 @@ export const Diet = [
     protein: 18,
     carbs: 10,
     fat: 20,
+    image: require('images/Meen_Kuzhambu.png'),
   },
   {
     name: 'Kozhikari',
@@ -512,6 +578,7 @@ export const Diet = [
     protein: 22,
     carbs: 30,
     fat: 15,
+    image: require('images/Kozhikari.png'),
   },
   {
     name: 'Thalassery Chicken Biryani',
@@ -521,6 +588,7 @@ export const Diet = [
     protein: 28,
     carbs: 60,
     fat: 25,
+    image: require('images/Thalassery_Chicken_Biryani.png'),
   },
   {
     name: 'Ragi Mudde',
@@ -530,6 +598,7 @@ export const Diet = [
     protein: 4,
     carbs: 35,
     fat: 2,
+    image: require('images/Ragi_Mudde.png'),
   },
   {
     name: 'Elaneer Payasam',
@@ -539,5 +608,6 @@ export const Diet = [
     protein: 1,
     carbs: 30,
     fat: 8,
+    image: require('images/Elaneer_Payasam.png'),
   },
 ];

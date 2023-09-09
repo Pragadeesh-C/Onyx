@@ -6,7 +6,6 @@ import BottomTabNavigator from 'navigation/BottomTabNavigator';
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <BottomTabNavigator /> */}
       <StackNavigator />
     </NavigationContainer>
     // <Onboarding/>

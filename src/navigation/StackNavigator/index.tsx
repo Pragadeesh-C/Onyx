@@ -12,6 +12,8 @@ import Height from 'container/OnboardingScreens/Height';
 import Goal from 'container/OnboardingScreens/Goal';
 import Home from 'container/Home';
 import BottomTabNavigator from 'navigation/BottomTabNavigator';
+import WorkoutPrompt from 'container/WorkoutPrompt';
+import StartWorkout from 'container/StartWorkout';
 
 const StackNavigator = () => {
     const Stack = createStackNavigator();
@@ -26,6 +28,8 @@ const StackNavigator = () => {
         <Stack.Screen name={Routes.Height} component={Height} />
         <Stack.Screen name={Routes.Goal} component={Goal} />
         <Stack.Screen name={Routes.Tabs} component={BottomTabNavigator} />
+        <Stack.Screen name={Routes.WorkoutPrompt} component={WorkoutPrompt} />
+        <Stack.Screen name={Routes.WorkoutStart} component={StartWorkout} />
       </Stack.Navigator>
   )
 }
