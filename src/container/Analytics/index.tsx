@@ -8,6 +8,7 @@ import CircularProgress from 'react-native-circular-progress-indicator';
 import NutritionDetailsBox from 'components/NutritionDetailsBox';
 
 const Analytics = () => {
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Analytics</Text>

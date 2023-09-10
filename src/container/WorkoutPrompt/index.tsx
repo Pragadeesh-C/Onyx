@@ -20,9 +20,11 @@ const WorkoutPrompt = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Rate your condition</Text>
-      {Data.map((item, index) => (
-        <RatingComponent key={index} label={item.label} />
-      ))}
+      <View style={{alignItems: 'center'}}>
+        {Data.map((item, index) => (
+          <RatingComponent key={index} label={item.label} />
+        ))}
+      </View>
 
       <TouchableOpacity
         style={styles.button}

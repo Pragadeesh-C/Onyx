@@ -1,24 +1,89 @@
 import {Image, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {IMAGES} from 'images/images';
 import {TouchableOpacity} from 'react-native';
 import Progressbar from 'components/Progressbar';
+import googleFit, {Scopes} from 'react-native-google-fit';
+import auth from '@react-native-firebase/auth';
 
 const Home = () => {
-  const name = 'Kakashi';
+  const name = auth().currentUser?.displayName;
+  const today =  new Date();
+  const [calories,setCalories] = useState(0);
+
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+
+  useEffect(() => {
+    getSteps();
+  }, []);
+
+  const getSteps = async () => {
+    const date = new Date().toISOString;
+    const options = {
+      scopes: [ 
+        Scopes.FITNESS_ACTIVITY_READ,
+        Scopes.FITNESS_ACTIVITY_WRITE,
+        Scopes.FITNESS_BODY_READ,
+        Scopes.FITNESS_BODY_WRITE,
+        Scopes.FITNESS_BLOOD_PRESSURE_READ,
+        Scopes.FITNESS_BLOOD_PRESSURE_WRITE,
+        Scopes.FITNESS_BLOOD_GLUCOSE_READ,
+        Scopes.FITNESS_BLOOD_GLUCOSE_WRITE,
+        Scopes.FITNESS_ACTIVITY_READ,
+        Scopes.FITNESS_ACTIVITY_WRITE,
+        Scopes.FITNESS_HEART_RATE_READ,
+        Scopes.FITNESS_HEART_RATE_WRITE,
+      ],
+    };
+    await googleFit.authorize(options).then(resp => console.log(resp));
+    await googleFit.checkIsAuthorized().then((res) => console.log(res,"signedin"))
+    const today = new Date();
+    const lastWeekDate = new Date(
+      today.getFullYear(),
+      today.getMonth(),
+      today.getDate() - 10,
+    );
+    const opt = {
+      startDate: lastWeekDate.toISOString(),
+      endDate: today.toISOString(),
+    };
+    const res = await googleFit.getDailyStepCountSamples(opt);
+    const cal = await googleFit.getDailyCalorieSamples(opt);
+    const data = await googleFit.getDailyDistanceSamples(opt);
+    console.log("first",data);
+    console.log(cal);
+    setCalories(cal[0].calorie);
+    console.log(res[2]);
+    const opti = {
+      unit: "kg", // required; default 'kg'
+      startDate: new Date(
+        new Date().getFullYear(),
+        new Date().getMonth(),
+        new Date().getDate()-10
+      ).toISOString(),
+      endDate: new Date().toISOString(), // required
+      bucketInterval: 1, // optional - default 1. 
+      ascending: false // optional; default false
+    };
+    
+    await googleFit.getSleepSamples(opt).then((res)=> {
+      console.log(res)
+    });
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerDesc}>Everyday we're muscle'n</Text>
       <Text style={styles.welcomeText}>Hello, {name}</Text>
       <Text style={styles.headerText}>My Plan</Text>
       <View style={styles.headerBox}>
-        <Text style={styles.boxDate}>Today, 8 Jul</Text>
-        <Text style={styles.boxCal}>1 883 Kcal</Text>
+        <Text style={styles.boxDate}>Today, {today.getDate()} {months[today.getMonth()]}</Text>
+        <Text style={styles.boxCal}>{calories} Kcal</Text>
         <TouchableOpacity style={styles.trackButton}>
           <Text style={styles.trackButtonText}>Track your activity</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.todaysCal}>1 883 Kcal</Text>
+      <Text style={styles.todaysCal}>{calories} Kcal</Text>
       <Text style={styles.calText}>Total Kilocalories</Text>
       <View style={styles.analyticsBar}>
         <Progressbar
@@ -140,6 +205,6 @@ const styles = StyleSheet.create({
   },
   analyticsBar: {
     flexDirection: 'row',
-    marginTop:"15%"
+    marginTop: '15%',
   },
 });

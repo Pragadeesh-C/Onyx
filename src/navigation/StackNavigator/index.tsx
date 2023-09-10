@@ -19,7 +19,7 @@ import NutrientsPlan from 'container/NutrientsPlan';
 const StackNavigator = () => {
     const Stack = createStackNavigator();
   return (
-    <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={Routes.Tabs}>
+    <Stack.Navigator screenOptions={{headerShown:false}} initialRouteName={Routes.Splash}>
         <Stack.Screen name={Routes.Splash} component={Splash} />
         <Stack.Screen name={Routes.SignUp} component={SignUp} />
         <Stack.Screen name={Routes.SignIn} component={SignIn} />

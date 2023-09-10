@@ -7,12 +7,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from 'routes/Routes';
-import auth from '@react-native-firebase/auth'
+import auth from '@react-native-firebase/auth';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import googleFit, {Scopes} from 'react-native-google-fit';
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -20,12 +22,75 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const {navigate} = useNavigation();
 
-  const SignUp = async () => {
-    await auth().createUserWithEmailAndPassword(email,password).then(() => {
-        navigate(Routes.Gender as never);
-    }).catch((error) => {
-        console.log(error);
+  useEffect(() => {fitAuth()},[])
+
+  const fitAuth = async() => {
+    const options = {
+      scopes: [
+        Scopes.FITNESS_ACTIVITY_READ,
+        Scopes.FITNESS_ACTIVITY_WRITE,
+        Scopes.FITNESS_BODY_READ,
+        Scopes.FITNESS_BODY_WRITE,
+        Scopes.FITNESS_BLOOD_PRESSURE_READ,
+        Scopes.FITNESS_BLOOD_PRESSURE_WRITE,
+        Scopes.FITNESS_BLOOD_GLUCOSE_READ,
+        Scopes.FITNESS_BLOOD_GLUCOSE_WRITE,
+        Scopes.FITNESS_ACTIVITY_READ,
+        Scopes.FITNESS_ACTIVITY_WRITE,
+        Scopes.FITNESS_HEART_RATE_READ,
+        Scopes.FITNESS_HEART_RATE_WRITE,
+      ],
+    };
+    await googleFit.authorize(options);
+    await googleFit.checkIsAuthorized().then(() => {
+      console.log(googleFit.isAuthorized);
     })
+  }
+
+  const SignUp = async () => {
+    await auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        navigate(Routes.Gender as never);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
+  const googleAuth = async () => {
+    GoogleSignin.configure({
+      webClientId:
+        '241461455272-k3m65jd9cefc1ckvr5olchke56cp198q.apps.googleusercontent.com'
+    });
+    await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
+    const {idToken} = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    auth()
+      .signInWithCredential(googleCredential)
+      .then(async () => {
+        console.log('Logged in', auth().currentUser);
+        const options = {
+          scopes: [
+            Scopes.FITNESS_ACTIVITY_READ,
+            Scopes.FITNESS_ACTIVITY_WRITE,
+            Scopes.FITNESS_BODY_READ,
+            Scopes.FITNESS_BODY_WRITE,
+            Scopes.FITNESS_BLOOD_PRESSURE_READ,
+            Scopes.FITNESS_BLOOD_PRESSURE_WRITE,
+            Scopes.FITNESS_BLOOD_GLUCOSE_READ,
+            Scopes.FITNESS_BLOOD_GLUCOSE_WRITE,
+            Scopes.FITNESS_ACTIVITY_READ,
+            Scopes.FITNESS_ACTIVITY_WRITE,
+            Scopes.FITNESS_HEART_RATE_READ,
+            Scopes.FITNESS_HEART_RATE_WRITE,
+          ],
+        };
+        await googleFit.authorize(options);
+        await googleFit.checkIsAuthorized().then(() => {
+          console.log(googleFit.isAuthorized);
+        }).then(() => navigate(Routes.Gender as never))
+      });
   };
 
   return (
@@ -63,9 +128,7 @@ const SignUp = () => {
         />
         <Ionicons name={'lock-closed-outline'} size={20} style={styles.icon} />
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={SignUp}>
+      <TouchableOpacity style={styles.button} onPress={SignUp}>
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
       <View style={styles.borderOr}>
@@ -74,10 +137,12 @@ const SignUp = () => {
         <View style={styles.border}></View>
       </View>
       <View style={styles.socialView}>
-        <Image
-          source={require('images/google.png')}
-          style={styles.socialIcon}
-        />
+        <TouchableOpacity onPress={googleAuth}>
+          <Image
+            source={require('images/google.png')}
+            style={styles.socialIcon}
+          />
+        </TouchableOpacity>
         <Image
           source={require('images/facebook.png')}
           style={styles.socialIcon}

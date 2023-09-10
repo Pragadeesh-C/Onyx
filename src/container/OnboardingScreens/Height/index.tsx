@@ -30,7 +30,7 @@ const Height = ({ route }: any) => {
       </View>
       <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Goal as never, {
         ...route.params,
-        'height': height
+        'height': height/100
       } as never)}>
         <Text style={styles.buttonText}>Next</Text>
         <MaterialIcons name='arrow-right' size={20} color={'white'} />
