@@ -1,4 +1,4 @@
-package com.onyx;
+package com.onyxx;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

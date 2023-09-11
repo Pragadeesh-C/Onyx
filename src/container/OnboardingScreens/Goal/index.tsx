@@ -1,26 +1,90 @@
 import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigation} from '@react-navigation/native';
-import {DatePicker, Picker} from 'react-native-wheel-pick';
+import {Picker} from 'react-native-wheel-pick';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import {Routes} from 'routes/Routes';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
 import googleFit from 'react-native-google-fit';
+import {Routes} from 'routes/Routes';
 
 const Goal = ({route}: any) => {
   const {navigate} = useNavigation();
-  const {gender, age, weight, height} = route.params;
-  const pickerData = ['Lose weight', 'Get Fitter', 'Gain Weight'];
+  let {gender, age, weight, height} = route.params;
+  const [bmi, setBMI] = useState<number | null>(null);
+  const [bmr, setBMR] = useState<number | null>(null);
   const [goal, setGoal] = useState<string | undefined>();
+  const [calToBeMaintained, setCalToBeMaintained] = useState();
+
   const user = auth().currentUser.email;
-  console.log(user);
+  const pickerData = ['Lose weight', 'Get Fitter', 'Gain Weight'];
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    pushMetrics();
+    calculateMetrics();
+    caloriesCal();
+  }, []);
+
+  const getCal = async () => {
+    await fetch('http://192.168.29.101:3000/diet', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        age: 19,
+        height: 178,
+        weight: 58,
+        gender: 0,
+        bmi: 18.3,
+        bmr: 980,
+        activity_level: 1.5,
+      }),
+    })
+      .then(res => res.json())
+      .then(resp => {
+        setCalToBeMaintained(resp['prediction']);
+      });
+  };
+
+  const caloriesCal = async () => {
+    const activityLevel = Math.random() + 1;
+    let heightInCm = height * 100;
+    let Gender = gender === 'male' ? 0 : 1;
+    const getCal = async () => {
+      await fetch('http://192.168.29.101:3000/diet', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          age: 19,
+          height: 178,
+          weight: 58,
+          gender: 0,
+          bmi: 18.3,
+          bmr: 980,
+          activity_level: 1.5,
+        }),
+      })
+        .then(res => res.json())
+        .then(resp => {
+          setCalToBeMaintained(resp['prediction']);
+        });
+    };
+  };
 
   const pushMetrics = () => {
+    const parsedHeight = parseFloat(height);
+    const parsedWeight = parseFloat(weight);
     const today = new Date();
     var opt = {
       date: today.toISOString(),
-      value: 1.7,
+      value: parsedHeight,
     };
     googleFit.saveHeight(opt, (err, res) => {
       if (err) {
@@ -31,7 +95,7 @@ const Goal = ({route}: any) => {
     });
     var opt = {
       date: today.toISOString(),
-      value: 58,
+      value: parsedWeight,
     };
     googleFit.saveWeight(opt, (err, res) => {
       if (err) {
@@ -40,35 +104,98 @@ const Goal = ({route}: any) => {
         console.log(res);
       }
     });
+  };
 
-    navigate(Routes.Tabs as never);
+  const calculateMetrics = async () => {
+    setIsLoading(true);
+
+    const heightInMeters = height / 100; // Convert height to meters
+    const parsedWeight = parseFloat(weight);
+    const parsedAge = parseFloat(age);
+
+    if (isNaN(parsedWeight) || isNaN(heightInMeters) || isNaN(parsedAge)) {
+      setBMR(null);
+      setBMI(null);
+    } else {
+      let bmrResult;
+      if (gender === 'male') {
+        bmrResult =
+          10 * parsedWeight + 6.25 * heightInMeters - 5 * parsedAge + 5;
+      } else if (gender === 'female') {
+        bmrResult =
+          10 * parsedWeight + 6.25 * heightInMeters - 5 * parsedAge - 161;
+      }
+
+      setBMR(bmrResult);
+
+      const url = `https://body-mass-index-bmi-calculator.p.rapidapi.com/metric?weight=${weight}&height=${height}`;
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key':
+            '9170be0dacmsh3cec812953e7c12p1ede1bjsn56c6235b4910',
+          'X-RapidAPI-Host': 'body-mass-index-bmi-calculator.p.rapidapi.com',
+        },
+      };
+
+      try {
+        const response = await fetch(url, options);
+        const result = await response.json();
+        setBMI(result['bmi']);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    setIsLoading(false);
+
+    if (bmi !== undefined && bmr !== undefined) {
+      pushData();
+    }
   };
 
   const pushData = async () => {
-    await firestore()
-      .collection('UsersData')
-      .doc(user)
-      .set({
-        email: user,
-        gender: gender,
-        age: age,
-        weight: weight,
-        height: height,
-        goal: goal,
-      })
-      .then(async () => {
-        pushMetrics();
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    await getCal();
+    if (
+      user &&
+      gender &&
+      age &&
+      weight &&
+      height &&
+      goal !== undefined &&
+      bmi !== null &&
+      bmr !== null
+    ) {
+      await firestore()
+        .collection('UsersData')
+        .doc(user)
+        .set({
+          email: user,
+          gender: gender,
+          age: age,
+          weight: weight,
+          height: height,
+          goal: goal,
+          bmi: bmi,
+          bmr: bmr,
+          calEst: calToBeMaintained,
+        })
+        .then(() => {
+          navigate(Routes.Tabs); // Replace with your next screen
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      console.log('One or more required values are undefined.');
+    }
   };
 
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>What's your goal</Text>
       <Text style={styles.headerDesc}>
-        this helps us create your personalized plan
+        This helps us create your personalized plan
       </Text>
       <View style={{height: '70%', justifyContent: 'center'}}>
         <Picker

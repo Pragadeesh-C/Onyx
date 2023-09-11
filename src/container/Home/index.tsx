@@ -8,19 +8,35 @@ import auth from '@react-native-firebase/auth';
 
 const Home = () => {
   const name = auth().currentUser?.displayName;
-  const today =  new Date();
-  const [calories,setCalories] = useState(0);
+  const today = new Date();
+  const [calories, setCalories] = useState(0);
+  const [calToBeMaintained, setCalToBeMaintained] = useState();
+  const [steps,setSteps] = useState(0);
 
-  const months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
 
   useEffect(() => {
     getSteps();
   }, []);
 
+ 
+
   const getSteps = async () => {
-    const date = new Date().toISOString;
     const options = {
-      scopes: [ 
+      scopes: [
         Scopes.FITNESS_ACTIVITY_READ,
         Scopes.FITNESS_ACTIVITY_WRITE,
         Scopes.FITNESS_BODY_READ,
@@ -35,40 +51,22 @@ const Home = () => {
         Scopes.FITNESS_HEART_RATE_WRITE,
       ],
     };
-    await googleFit.authorize(options).then(resp => console.log(resp));
-    await googleFit.checkIsAuthorized().then((res) => console.log(res,"signedin"))
+    await googleFit.authorize(options);
+    await googleFit.checkIsAuthorized();
     const today = new Date();
     const lastWeekDate = new Date(
       today.getFullYear(),
       today.getMonth(),
-      today.getDate() - 10,
+      today.getDate() - 1,
     );
     const opt = {
       startDate: lastWeekDate.toISOString(),
       endDate: today.toISOString(),
     };
     const res = await googleFit.getDailyStepCountSamples(opt);
+    setSteps(res[2].rawSteps[0].steps)
     const cal = await googleFit.getDailyCalorieSamples(opt);
-    const data = await googleFit.getDailyDistanceSamples(opt);
-    console.log("first",data);
-    console.log(cal);
     setCalories(cal[0].calorie);
-    console.log(res[2]);
-    const opti = {
-      unit: "kg", // required; default 'kg'
-      startDate: new Date(
-        new Date().getFullYear(),
-        new Date().getMonth(),
-        new Date().getDate()-10
-      ).toISOString(),
-      endDate: new Date().toISOString(), // required
-      bucketInterval: 1, // optional - default 1. 
-      ascending: false // optional; default false
-    };
-    
-    await googleFit.getSleepSamples(opt).then((res)=> {
-      console.log(res)
-    });
   };
 
   return (
@@ -77,13 +75,15 @@ const Home = () => {
       <Text style={styles.welcomeText}>Hello, {name}</Text>
       <Text style={styles.headerText}>My Plan</Text>
       <View style={styles.headerBox}>
-        <Text style={styles.boxDate}>Today, {today.getDate()} {months[today.getMonth()]}</Text>
+        <Text style={styles.boxDate}>
+          Today, {today.getDate()} {months[today.getMonth()]}
+        </Text>
         <Text style={styles.boxCal}>{calories} Kcal</Text>
         <TouchableOpacity style={styles.trackButton}>
           <Text style={styles.trackButtonText}>Track your activity</Text>
         </TouchableOpacity>
       </View>
-      <Text style={styles.todaysCal}>{calories} Kcal</Text>
+      <Text style={styles.todaysCal}>{steps} Kcal</Text>
       <Text style={styles.calText}>Total Kilocalories</Text>
       <View style={styles.analyticsBar}>
         <Progressbar

@@ -1,7 +1,7 @@
 export const Diet = [
   {
     name: 'Scrambled Eggs',
-    type: 'breakfast',
+    type: 'Breakfast',
     vegetarian: false,
     calories: 300,
     protein: 20,
@@ -13,7 +13,7 @@ export const Diet = [
   },
   {
     name: 'Oatmeal',
-    type: 'breakfast',
+    type: 'Breakfast',
     vegetarian: true,
     calories: 250,
     protein: 5,
@@ -25,7 +25,7 @@ export const Diet = [
   },
   {
     name: 'Grilled Chicken Salad',
-    type: 'lunch',
+    type: 'Lunch',
     vegetarian: false,
     calories: 350,
     protein: 30,
@@ -37,7 +37,7 @@ export const Diet = [
   },
   {
     name: 'Vegetable Stir-Fry',
-    type: 'lunch',
+    type: 'Lunch',
     vegetarian: true,
     calories: 300,
     protein: 10,
@@ -49,7 +49,7 @@ export const Diet = [
   },
   {
     name: 'Chicken Biryani',
-    type: 'dinner',
+    type: 'Dinner',
     vegetarian: false,
     calories: 500,
     protein: 25,
@@ -61,7 +61,7 @@ export const Diet = [
   },
   {
     name: 'Paneer Tikka',
-    type: 'dinner',
+    type: 'Dinner',
     vegetarian: true,
     calories: 400,
     protein: 18,
@@ -73,7 +73,7 @@ export const Diet = [
   },
   {
     name: 'Spinach and Chickpea Curry',
-    type: 'dinner',
+    type: 'Dinner',
     vegetarian: true,
     calories: 350,
     protein: 15,
@@ -85,7 +85,7 @@ export const Diet = [
   },
   {
     name: 'Salmon with Asparagus',
-    type: 'dinner',
+    type: 'Dinner',
     vegetarian: false,
     calories: 450,
     protein: 35,
@@ -97,7 +97,7 @@ export const Diet = [
   },
   {
     name: 'Greek Yogurt Parfait',
-    type: 'snack',
+    type: 'Snack',
     vegetarian: true,
     calories: 200,
     protein: 12,
@@ -109,7 +109,7 @@ export const Diet = [
   },
   {
     name: 'Almonds',
-    type: 'snack',
+    type: 'Snack',
     vegetarian: true,
     calories: 150,
     protein: 6,
@@ -121,7 +121,7 @@ export const Diet = [
   },
   {
     name: 'Avocado Toast',
-    type: 'breakfast',
+    type: 'Breakfast',
     vegetarian: true,
     calories: 350,
     protein: 7,
@@ -133,7 +133,7 @@ export const Diet = [
   },
   {
     name: 'Turkey Sandwich',
-    type: 'lunch',
+    type: 'Lunch',
     vegetarian: false,
     calories: 400,
     protein: 20,
@@ -145,7 +145,7 @@ export const Diet = [
   },
   {
     name: 'Quinoa Salad',
-    type: 'lunch',
+    type: 'Lunch',
     vegetarian: true,
     calories: 300,
     protein: 10,
@@ -157,7 +157,7 @@ export const Diet = [
   },
   {
     name: 'Beef Stir-Fry',
-    type: 'dinner',
+    type: 'Dinner',
     vegetarian: false,
     calories: 450,
     protein: 30,
@@ -169,7 +169,7 @@ export const Diet = [
   },
   {
     name: 'Chickpea Curry',
-    type: 'dinner',
+    type: 'Dinner',
     vegetarian: true,
     calories: 350,
     protein: 12,
@@ -181,7 +181,7 @@ export const Diet = [
   },
   {
     name: 'Greek Salad',
-    type: 'lunch',
+    type: 'Lunch',
     vegetarian: true,
     calories: 250,
     protein: 8,

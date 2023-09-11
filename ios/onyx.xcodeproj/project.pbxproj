@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* OnyxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* OnyxTests.m */; };
+		00E356F31AD99517003FC87E /* onyxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* onyxTests.m */; };
 		0508108F3DA844B2BC6FBD13 /* IntegralCF-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = BC188B4183CA46798A2EA1B8 /* IntegralCF-Heavy.otf */; };
 		05122CA12B7F4950ABF79BC8 /* Bebas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2099BDB452154C1195CFF84D /* Bebas.ttf */; };
-		0C80B921A6F3F58F76C31292 /* libPods-Onyx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Onyx.a */; };
+		0C80B921A6F3F58F76C31292 /* libPods-onyx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-onyx.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -19,7 +19,7 @@
 		4BCF0224DDF14DFC9283BCA5 /* IntegralCF-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7F45F35953CC4443A1683C57 /* IntegralCF-Bold.otf */; };
 		5BA6D44B388F492BA37248A8 /* Poppins.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F44921B419A4787B86C2262 /* Poppins.ttf */; };
 		69C3086595CC4DBFAF772624 /* IntegralCF-DemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9FFA30795E34A7BAD071BC6 /* IntegralCF-DemiBold.otf */; };
-		7699B88040F8A987B510C191 /* libPods-Onyx-OnyxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Onyx-OnyxTests.a */; };
+		7699B88040F8A987B510C191 /* libPods-onyx-onyxTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-onyx-onyxTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		83BF3649334E4AE8800DCB64 /* IntegralCF-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C34C178EE4864D658429FEBE /* IntegralCF-Regular.otf */; };
 		920D2806C30743868F84771F /* IntegralCF-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1668DEB32DB34FEEBA1259A8 /* IntegralCF-Medium.otf */; };
@@ -52,34 +52,34 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = Onyx;
+			remoteInfo = "onyx";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* OnyxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnyxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* onyxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "onyxTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* OnyxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnyxTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* Onyx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onyx.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Onyx/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = Onyx/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Onyx/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Onyx/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Onyx/main.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* onyxTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "onyxTests.m"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* onyx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "onyx.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = "onyx/AppDelegate.h"; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = "onyx/AppDelegate.mm"; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "onyx/Images.xcassets"; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "onyx/Info.plist"; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "onyx/main.m"; sourceTree = "<group>"; };
 		1668DEB32DB34FEEBA1259A8 /* IntegralCF-Medium.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IntegralCF-Medium.otf"; path = "../src/assets/fonts/IntegralCF-Medium.otf"; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Onyx-OnyxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Onyx-OnyxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19F6CBCC0A4E27FBF8BF4A61 /* libPods-onyx-onyxTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-onyx-onyxTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2099BDB452154C1195CFF84D /* Bebas.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Bebas.ttf; path = ../src/assets/fonts/Bebas.ttf; sourceTree = "<group>"; };
 		2F44921B419A4787B86C2262 /* Poppins.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Poppins.ttf; path = ../src/assets/fonts/Poppins.ttf; sourceTree = "<group>"; };
-		3B4392A12AC88292D35C810B /* Pods-Onyx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onyx.debug.xcconfig"; path = "Target Support Files/Pods-Onyx/Pods-Onyx.debug.xcconfig"; sourceTree = "<group>"; };
+		3B4392A12AC88292D35C810B /* Pods-onyx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onyx.debug.xcconfig"; path = "Target Support Files/Pods-onyx/Pods-onyx.debug.xcconfig"; sourceTree = "<group>"; };
 		479C2A1B847D4078B2DADF91 /* IntegralCF-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IntegralCF-ExtraBold.otf"; path = "../src/assets/fonts/IntegralCF-ExtraBold.otf"; sourceTree = "<group>"; };
 		48FB1494CEE54D24A7DDDCCF /* Sen-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Sen-Bold.ttf"; path = "../src/assets/fonts/Sen-Bold.ttf"; sourceTree = "<group>"; };
 		4C790EFA6057404A8107B952 /* Sen.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Sen.ttf; path = ../src/assets/fonts/Sen.ttf; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-Onyx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onyx.release.xcconfig"; path = "Target Support Files/Pods-Onyx/Pods-Onyx.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-Onyx-OnyxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onyx-OnyxTests.debug.xcconfig"; path = "Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-Onyx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Onyx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5709B34CF0A7D63546082F79 /* Pods-onyx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onyx.release.xcconfig"; path = "Target Support Files/Pods-onyx/Pods-onyx.release.xcconfig"; sourceTree = "<group>"; };
+		5B7EB9410499542E8C5724F5 /* Pods-onyx-onyxTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onyx-onyxTests.debug.xcconfig"; path = "Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5DCACB8F33CDC322A6C60F78 /* libPods-onyx.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-onyx.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F45F35953CC4443A1683C57 /* IntegralCF-Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IntegralCF-Bold.otf"; path = "../src/assets/fonts/IntegralCF-Bold.otf"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Onyx/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-Onyx-OnyxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Onyx-OnyxTests.release.xcconfig"; path = "Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = "onyx/LaunchScreen.storyboard"; sourceTree = "<group>"; };
+		89C6BE57DB24E9ADA2F236DE /* Pods-onyx-onyxTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-onyx-onyxTests.release.xcconfig"; path = "Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests.release.xcconfig"; sourceTree = "<group>"; };
 		B9FFA30795E34A7BAD071BC6 /* IntegralCF-DemiBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IntegralCF-DemiBold.otf"; path = "../src/assets/fonts/IntegralCF-DemiBold.otf"; sourceTree = "<group>"; };
 		BA2BD5C278414ED683B9A669 /* Sen-ExtraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Sen-ExtraBold.ttf"; path = "../src/assets/fonts/Sen-ExtraBold.ttf"; sourceTree = "<group>"; };
 		BC188B4183CA46798A2EA1B8 /* IntegralCF-Heavy.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IntegralCF-Heavy.otf"; path = "../src/assets/fonts/IntegralCF-Heavy.otf"; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-Onyx-OnyxTests.a in Frameworks */,
+				7699B88040F8A987B510C191 /* libPods-onyx-onyxTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,20 +119,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-Onyx.a in Frameworks */,
+				0C80B921A6F3F58F76C31292 /* libPods-onyx.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* OnyxTests */ = {
+		00E356EF1AD99517003FC87E /* onyxTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* OnyxTests.m */,
+				00E356F21AD99517003FC87E /* onyxTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = OnyxTests;
+			path = "onyxTests";
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -143,7 +143,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* Onyx */ = {
+		13B07FAE1A68108700A75B9A /* onyx */ = {
 			isa = PBXGroup;
 			children = (
 				E1AD9FDF2AA9962200F92767 /* Fonts */,
@@ -154,15 +154,15 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = Onyx;
+			name = "onyx";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-Onyx.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-Onyx-OnyxTests.a */,
+				5DCACB8F33CDC322A6C60F78 /* libPods-onyx.a */,
+				19F6CBCC0A4E27FBF8BF4A61 /* libPods-onyx-onyxTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,9 +177,9 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* Onyx */,
+				13B07FAE1A68108700A75B9A /* onyx */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* OnyxTests */,
+				00E356EF1AD99517003FC87E /* onyxTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -193,8 +193,8 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* Onyx.app */,
-				00E356EE1AD99517003FC87E /* OnyxTests.xctest */,
+				13B07F961A680F5B00A75B9A /* onyx.app */,
+				00E356EE1AD99517003FC87E /* onyxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -220,10 +220,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-Onyx.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-Onyx.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-Onyx-OnyxTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-Onyx-OnyxTests.release.xcconfig */,
+				3B4392A12AC88292D35C810B /* Pods-onyx.debug.xcconfig */,
+				5709B34CF0A7D63546082F79 /* Pods-onyx.release.xcconfig */,
+				5B7EB9410499542E8C5724F5 /* Pods-onyx-onyxTests.debug.xcconfig */,
+				89C6BE57DB24E9ADA2F236DE /* Pods-onyx-onyxTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -257,9 +257,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* OnyxTests */ = {
+		00E356ED1AD99517003FC87E /* onyxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "OnyxTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "onyxTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -273,14 +273,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = OnyxTests;
-			productName = OnyxTests;
-			productReference = 00E356EE1AD99517003FC87E /* OnyxTests.xctest */;
+			name = "onyxTests";
+			productname = "onyxTests";
+			productReference = 00E356EE1AD99517003FC87E /* onyxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* Onyx */ = {
+		13B07F861A680F5B00A75B9A /* onyx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Onyx" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "onyx" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -295,9 +295,9 @@
 			);
 			dependencies = (
 			);
-			name = Onyx;
-			productName = Onyx;
-			productReference = 13B07F961A680F5B00A75B9A /* Onyx.app */;
+			name = "onyx";
+			productName = "onyx";
+			productReference = 13B07F961A680F5B00A75B9A /* onyx.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -317,7 +317,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Onyx" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "onyx" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -330,8 +330,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* Onyx */,
-				00E356ED1AD99517003FC87E /* OnyxTests */,
+				13B07F861A680F5B00A75B9A /* onyx */,
+				00E356ED1AD99517003FC87E /* onyxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -408,15 +408,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx/Pods-Onyx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx/Pods-onyx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx/Pods-Onyx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx/Pods-onyx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Onyx/Pods-Onyx-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-onyx/Pods-onyx-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -434,7 +434,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Onyx-OnyxTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-onyx-onyxTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -456,7 +456,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Onyx-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-onyx-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -469,15 +469,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -486,15 +486,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx/Pods-Onyx-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx/Pods-onyx-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx/Pods-Onyx-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx/Pods-onyx-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Onyx/Pods-Onyx-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-onyx/Pods-onyx-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -503,15 +503,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Onyx-OnyxTests/Pods-Onyx-OnyxTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-onyx-onyxTests/Pods-onyx-onyxTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -540,7 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* OnyxTests.m in Sources */,
+				00E356F31AD99517003FC87E /* onyxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,7 +558,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* Onyx */;
+			target = 13B07F861A680F5B00A75B9A /* onyx */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -566,14 +566,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-Onyx-OnyxTests.debug.xcconfig */;
+			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-onyx-onyxTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = OnyxTests/Info.plist;
+				INFOPLIST_FILE = "onyxTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -585,19 +585,19 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onyxx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Onyx.app/Onyx";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/onyx.app/onyx";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-Onyx-OnyxTests.release.xcconfig */;
+			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-onyx-onyxTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = OnyxTests/Info.plist;
+				INFOPLIST_FILE = "onyxTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -609,21 +609,22 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onyxx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Onyx.app/Onyx";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/onyx.app/onyx";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-Onyx.debug.xcconfig */;
+			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-onyx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = Onyx/Info.plist;
+				INFOPLIST_FILE = "onyx/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "onyx";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -634,8 +635,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Onyx;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onyxx";
+				PRODUCT_NAME = "onyx";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -644,12 +645,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-Onyx.release.xcconfig */;
+			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-onyx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = Onyx/Info.plist;
+				INFOPLIST_FILE = "onyx/Info.plist";
+             INFOPLIST_KEY_CFBundleDisplayName = "onyx";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -660,8 +662,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = Onyx;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onyxx";
+				PRODUCT_NAME = "onyx";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -805,7 +807,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "OnyxTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "onyxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -814,7 +816,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Onyx" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "onyx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -823,7 +825,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "Onyx" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "onyx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

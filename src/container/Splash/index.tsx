@@ -14,7 +14,7 @@ const Splash = () => {
 
   const getPermissions = async() => {
     const granted = await PermissionsAndroid.requestMultiple([PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,PermissionsAndroid.PERMISSIONS.BODY_SENSORS])
-      console.log(granted,"granted")
+      // console.log(granted,"granted")
   }
 
   const timeOut = () => {
@@ -26,7 +26,7 @@ const Splash = () => {
   const isSignedIn = async () => {
     auth().onAuthStateChanged(user => {
       if (user) {
-        console.log(user);
+        // console.log(user);
         navigate(Routes.Tabs as never);
       } else {
         navigate(Routes.SignUp as never);

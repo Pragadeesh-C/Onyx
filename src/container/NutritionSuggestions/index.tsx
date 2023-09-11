@@ -1,15 +1,38 @@
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import FoodCardComponent from 'components/FoodCardComponent';
-import {Diet} from 'data/diet';
+import { Diet } from 'data/diet';
 
-const NutritionSuggestion = () => {
+const NutritionSuggestion = ({ route }) => {
+  const [recommendedItems, setRecommendedItems] = useState([]);
+  const mealType = route.name; 
+  const isVegetarian = true;
+  
+  const userProteinRequirement = 150; 
+  const userCalorieRequirement = 2000; 
+
+  useEffect(() => {
+    const proteinPerMeal = userProteinRequirement / 4; 
+    const caloriePerMeal = userCalorieRequirement / 4;
+
+    const filteredItems = Diet.filter((food) => {
+      return (
+        food.type === mealType &&
+        (isVegetarian ? food.vegetarian : true) && 
+        food.protein <= proteinPerMeal &&
+        food.calories <= caloriePerMeal
+      );
+    });
+
+    setRecommendedItems(filteredItems);
+  }, [userProteinRequirement, userCalorieRequirement, mealType, isVegetarian]);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>NutritionSuggestion</Text>
+      <Text style={styles.headerText}>Nutrition Suggestion</Text>
       <FlatList
-        data={Diet}
-        renderItem={({item}) => (
+        data={recommendedItems}
+        renderItem={({ item }) => (
           <FoodCardComponent
             name={item.name}
             calories={item.calories}
@@ -20,7 +43,7 @@ const NutritionSuggestion = () => {
             protein={item.protein}
           />
         )}
-        style={{padding: 10}}
+        style={{ padding: 10 }}
       />
     </View>
   );

@@ -10,10 +10,13 @@ const TopTabNavigator = () => {
   return (
     <TopTab.Navigator>
       <TopTab.Screen
-        name={Routes.Veg}
+        name={Routes.Breakfast}
         component={NutritionSuggestion}
       />
-      <TopTab.Screen name={Routes.NonVeg} component={NutritionSuggestion} />
+      <TopTab.Screen name={Routes.Lunch} component={NutritionSuggestion} />
+      <TopTab.Screen name={Routes.Snacks} component={NutritionSuggestion} />
+      <TopTab.Screen name={Routes.Dinner} component={NutritionSuggestion} />
+
     </TopTab.Navigator>
   );
 };

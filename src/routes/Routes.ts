@@ -18,6 +18,8 @@ export const Routes = {
     WorkoutPage:'WorkoutPage',
     NutrientsSuggestion:'NutrientsSuggestion',
     NutrientsPlan:'NutrientsPlan',
-    Veg:'Veg',
-    NonVeg:'Non Veg'
+    Breakfast:'Breakfast',
+    Lunch:'Lunch',
+    Snacks:'Snacks',
+    Dinner:'Dinner'
 }

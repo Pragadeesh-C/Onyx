@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:241461455272:android:d397144d901ea2d5fe159d",
+        "mobilesdk_app_id": "1:241461455272:android:28ec03c6cce6f852fe159d",
         "android_client_info": {
-          "package_name": "com.onyx"
+          "package_name": "com.onyxx"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "241461455272-ahs3873qqff2gie0qjl9l2da8cec7g7d.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.onyx",
-            "certificate_hash": "ae54079d9f6369e5107a554453804baa0b5138bb"
-          }
-        },
         {
           "client_id": "241461455272-k3m65jd9cefc1ckvr5olchke56cp198q.apps.googleusercontent.com",
           "client_type": 3

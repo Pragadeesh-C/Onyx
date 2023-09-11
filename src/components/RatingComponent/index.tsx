@@ -1,32 +1,29 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
 
-const RatingComponent = ({label}) => {
-  const [activeRating, setActiveRating] = useState(null);
-
-  const handleRatingPress = index => {
-    setActiveRating(prevRating => {
-      if (index === prevRating?.index) {
-        return null;
-      } else {
-        const newRating = {index, value: index + 1};
-        return newRating;
-      }
-    });
+const RatingComponent = ({ label, rating, setRating }) => {
+  const handleRatingPress = (index) => {
+    if (index === rating?.index) {
+      setRating(null);
+    } else {
+      const newRating = { index, value: index + 1 };
+      setRating(newRating);
+    }
   };
 
-  const Ratings = ({index, style}) => {
-    const isActive = index === activeRating?.index;
+  const Ratings = ({ index, style }) => {
+    const isActive = index === rating?.index;
 
     return (
       <TouchableOpacity
         style={[
           styles.ratingsComponent,
           style,
-          isActive ? {backgroundColor: '#A48AED'} : {},
+          isActive ? { backgroundColor: '#A48AED' } : {},
         ]}
-        onPress={() => handleRatingPress(index)}>
-        <Text style={[styles.rating, isActive ? {color: 'white'} : {}]}>
+        onPress={() => handleRatingPress(index)}
+      >
+        <Text style={[styles.rating, isActive ? { color: 'white' } : {}]}>
           {index + 1}
         </Text>
       </TouchableOpacity>
@@ -37,15 +34,15 @@ const RatingComponent = ({label}) => {
     <View style={styles.container}>
       <Text style={styles.headerText}>{label}</Text>
       <View style={styles.ratingsView}>
-        {Array.from({length: 5}, (_, index) => (
+        {Array.from({ length: 5 }, (_, index) => (
           <Ratings
             key={index}
             index={index}
             style={
               index === 0
-                ? {borderLeftWidth: 0}
+                ? { borderLeftWidth: 0 }
                 : index === 4
-                ? {borderRightWidth: 0}
+                ? { borderRightWidth: 0 }
                 : {}
             }
           />

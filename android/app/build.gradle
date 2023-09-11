@@ -74,9 +74,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.onyx"
+    namespace "com.onyxx"
     defaultConfig {
-        applicationId "com.onyx"
+        applicationId "com.onyxx"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

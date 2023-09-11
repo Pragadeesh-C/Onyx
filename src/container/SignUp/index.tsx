@@ -22,9 +22,11 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
   const {navigate} = useNavigation();
 
-  useEffect(() => {fitAuth()},[])
+  useEffect(() => {
+    setTimeout(() => fitAuth(), 1000);
+  }, []);
 
-  const fitAuth = async() => {
+  const fitAuth = async () => {
     const options = {
       scopes: [
         Scopes.FITNESS_ACTIVITY_READ,
@@ -44,8 +46,8 @@ const SignUp = () => {
     await googleFit.authorize(options);
     await googleFit.checkIsAuthorized().then(() => {
       console.log(googleFit.isAuthorized);
-    })
-  }
+    });
+  };
 
   const SignUp = async () => {
     await auth()
@@ -61,7 +63,7 @@ const SignUp = () => {
   const googleAuth = async () => {
     GoogleSignin.configure({
       webClientId:
-        '241461455272-k3m65jd9cefc1ckvr5olchke56cp198q.apps.googleusercontent.com'
+        '241461455272-k3m65jd9cefc1ckvr5olchke56cp198q.apps.googleusercontent.com',
     });
     await GoogleSignin.hasPlayServices({showPlayServicesUpdateDialog: true});
     const {idToken} = await GoogleSignin.signIn();
@@ -87,9 +89,12 @@ const SignUp = () => {
           ],
         };
         await googleFit.authorize(options);
-        await googleFit.checkIsAuthorized().then(() => {
-          console.log(googleFit.isAuthorized);
-        }).then(() => navigate(Routes.Gender as never))
+        await googleFit
+          .checkIsAuthorized()
+          .then(() => {
+            console.log(googleFit.isAuthorized);
+          })
+          .then(() => navigate(Routes.Gender as never));
       });
   };
 
