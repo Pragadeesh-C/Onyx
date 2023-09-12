@@ -21,5 +21,7 @@ export const Routes = {
     Breakfast:'Breakfast',
     Lunch:'Lunch',
     Snacks:'Snacks',
-    Dinner:'Dinner'
+    Dinner:'Dinner',
+    WorkoutVideo:'WorkoutVideo',
+    FoodPreference:'FoodPreference'
 }

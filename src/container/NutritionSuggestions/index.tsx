@@ -1,35 +1,56 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native';
 import React, { useEffect, useState } from 'react';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 import FoodCardComponent from 'components/FoodCardComponent';
 import { Diet } from 'data/diet';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
 const NutritionSuggestion = ({ route }) => {
   const [recommendedItems, setRecommendedItems] = useState([]);
-  const mealType = route.name; 
-  const isVegetarian = true;
-  
-  const userProteinRequirement = 150; 
-  const userCalorieRequirement = 2000; 
+  const [userData, setUserData] = useState(null); 
+
+  const mealType = route.name;
+  const user = auth().currentUser?.email;
 
   useEffect(() => {
-    const proteinPerMeal = userProteinRequirement / 4; 
-    const caloriePerMeal = userCalorieRequirement / 4;
-
-    const filteredItems = Diet.filter((food) => {
-      return (
-        food.type === mealType &&
-        (isVegetarian ? food.vegetarian : true) && 
-        food.protein <= proteinPerMeal &&
-        food.calories <= caloriePerMeal
-      );
-    });
-
-    setRecommendedItems(filteredItems);
-  }, [userProteinRequirement, userCalorieRequirement, mealType, isVegetarian]);
-
+    const fetchData = async () => {
+      try {
+        const userDoc = await firestore().collection('UsersData').doc(user).get();
+        const data = userDoc.data();
+        setUserData(data); 
+        const goal = data.goal;
+        const proteinPerMeal = data.weight / 3;
+        const caloriePerMeal = data.calEst / 3;
+  
+        const isVegetarian = data.foodPreference === 'Vegetarian';
+  
+        let filteredItems = Diet.filter((food) => {
+          return (
+            food.type === mealType &&
+            food.protein <= proteinPerMeal &&
+            food.calories <= caloriePerMeal &&
+            (isVegetarian ? food.isVegetarian : true) // Check if the food is vegetarian
+          );
+        });
+  
+        if (goal === 'Gain Weight') {
+          filteredItems = filteredItems.filter((food) => food.protein <= proteinPerMeal + 20);
+        } else if (goal === 'Lose weight') {
+          filteredItems = filteredItems.filter((food) => food.calories <= caloriePerMeal - 200);
+        }
+  
+        setRecommendedItems(filteredItems);
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+  
+    fetchData();
+  }, [mealType, user]);
+  
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>Nutrition Suggestion</Text>
+      <Text style={styles.headerText}>{route.name} Recommendation</Text>
       <FlatList
         data={recommendedItems}
         renderItem={({ item }) => (
@@ -41,9 +62,11 @@ const NutritionSuggestion = ({ route }) => {
             carbs={item.carbs}
             fat={item.fat}
             protein={item.protein}
+            schedule={route.name}
           />
         )}
         style={{ padding: 10 }}
+        keyExtractor={(item) => item.name}
       />
     </View>
   );

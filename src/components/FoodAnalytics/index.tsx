@@ -1,15 +1,8 @@
 import {StyleSheet, Text, View, ViewProps} from 'react-native';
 import React, { ReactNode } from 'react';
 
-interface FoodAnalyticsProps{
-  style:ViewProps;
-  icon:ReactNode;
-  headerText:string;
-  amount:string;
-  metrics:string;
-}
 
-const FoodAnalytics = ({style,icon,headerText,amount,metrics}:FoodAnalyticsProps) => {
+const FoodAnalytics = ({style,icon,headerText,amount,metrics}) => {
   return (
     <View style={[styles.container,style]}>
       {icon}

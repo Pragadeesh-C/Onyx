@@ -1,18 +1,126 @@
-import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import Stars from 'react-native-stars';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import IngredientsImage from 'components/IngredientsImage';
-import { IMAGES } from 'images/images';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
+import {useDispatch} from 'react-redux';
+import {setBreakfast, setDinner, setLunch} from 'redux/analyticsSlice';
 
-const NutrientsPlan = ({route}) => {
-  const {calories,fat,carbs,imageUrl,desc,name,protein} = route.params
+const NutrientsPlan = ({route}: any) => {
+  const {calories, fat, carbs, imageUrl, desc, name, protein, schedule} =
+    route.params;
+  const user = auth().currentUser?.email;
+  const [stars, setStars] = useState(0);
+  const dispatch = useDispatch();
+
+  const [breakfastAte, setBreakfastAte] = useState(false);
+
+  const getNextDayDate = () => {
+    const currentDate = new Date();
+    const nextDay = new Date(currentDate);
+    nextDay.setDate(currentDate.getDate() + 1);
+    return nextDay.toDateString();
+  };
+
+  useEffect(() => {
+    const checkBreakfastAteStatus = async () => {
+      try {
+        const nextDayDate = getNextDayDate();
+
+        const breakfastAteStatus = await AsyncStorage.getItem(
+          `${user}:${nextDayDate}:${schedule}`,
+        );
+        if (breakfastAteStatus === 'true') {
+          setBreakfastAte(true);
+        }
+      } catch (error) {
+        console.error('Error checking breakfast Ate status:', error);
+      }
+    };
+    const date = new Date().toDateString();
+    // checkBreakfastAteStatus();
+  }, []);
+
+  const handleAtePress = async () => {
+    try {
+      const date = new Date().toDateString();
+
+      await firestore()
+        .collection('FoodData')
+        .doc(user)
+        .collection('Date')
+        .doc(date)
+        .collection('Schedule')
+        .doc(schedule)
+        .set({
+          name: name,
+          calories: calories,
+          fat: fat,
+          carbs: carbs,
+          protein: protein,
+          evaluation: stars,
+        });
+
+      const foodData = {
+        name: name,
+        calories: calories,
+        protein: protein,
+        rating: stars,
+        fats: fat,
+        carbs: carbs,
+      };
+
+      await AsyncStorage.setItem(
+        `${user}:${date}:${schedule}`,
+        JSON.stringify(foodData),
+      );
+
+      setBreakfastAte(true);
+
+      if (schedule === 'Breakfast') {
+        dispatch(
+          setBreakfast({
+            calories: calories,
+            rating: stars,
+            protein: protein,
+            fats: fat,
+            carbs: carbs,
+          }),
+        );
+      } else if (schedule === 'Lunch') {
+        dispatch(
+          setLunch({
+            calories: calories,
+            rating: stars,
+            protein: protein,
+            fats: fat,
+            carbs: carbs,
+          }),
+        );
+      } else if (schedule === 'Dinner') {
+        dispatch(
+          setDinner({
+            calories: calories,
+            rating: stars,
+            protein: protein,
+            fats: fat,
+            carbs: carbs,
+          }),
+        );
+      }
+    } catch (error) {
+      console.error('Error writing data to Firestore:', error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Nutrients Plan</Text>
-      <Text style={styles.foodName}>Baked salmon & asparagus</Text>
+      <Text style={styles.foodName}>{name}</Text>
       <Stars
-        default={3}
+        default={0}
         count={5}
         half={true}
         starSize={50}
@@ -24,6 +132,7 @@ const NutrientsPlan = ({route}) => {
           />
         }
         halfStar={<Icon name={'star-half'} style={[styles.myStarStyle]} />}
+        update={val => setStars(val)}
       />
       <View style={styles.foodDetailsView}>
         <View style={{width: 160}}>
@@ -51,14 +160,15 @@ const NutrientsPlan = ({route}) => {
         </View>
       </View>
       <Text style={styles.aboutFoodText}>About food</Text>
-      <Text style={styles.foodDesc}>
-        {desc}
+      <Text style={styles.foodDesc}>{desc}</Text>
+      <Text style={{...styles.foodName, fontSize: 15}}>
+        You can rate the food item with the stars above
       </Text>
-      {/* <Text style={styles.ingredientsText}>Ingredients</Text>
-      <ScrollView style={styles.ingredientsContainer} horizontal showsHorizontalScrollIndicator>
-        <IngredientsImage imageUrl={IMAGES.pepper} />
-        <IngredientsImage imageUrl={IMAGES.broccoli} />
-      </ScrollView> */}
+      {!breakfastAte && (
+        <TouchableOpacity style={styles.button} onPress={handleAtePress}>
+          <Text style={styles.buttonText}>Ate</Text>
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -79,7 +189,7 @@ const styles = StyleSheet.create({
   },
   foodName: {
     fontFamily: 'Sen-Bold',
-    fontSize: 15,
+    fontSize: 17,
     color: 'black',
     paddingTop: '5%',
     paddingBottom: '2%',
@@ -158,5 +268,20 @@ const styles = StyleSheet.create({
     height: 75,
     width: 75,
     resizeMode: 'contain',
+  },
+  button: {
+    height: 45,
+    width: '90%',
+    alignSelf: 'center',
+    backgroundColor: '#A48AED',
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '5%',
+  },
+  buttonText: {
+    color: 'white',
+    fontFamily: 'Sen-Bold',
+    fontSize: 17,
   },
 });

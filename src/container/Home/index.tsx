@@ -5,13 +5,14 @@ import {TouchableOpacity} from 'react-native';
 import Progressbar from 'components/Progressbar';
 import googleFit, {Scopes} from 'react-native-google-fit';
 import auth from '@react-native-firebase/auth';
+import HomeCard from 'components/HomeCard';
 
 const Home = () => {
   const name = auth().currentUser?.displayName;
   const today = new Date();
   const [calories, setCalories] = useState(0);
   const [calToBeMaintained, setCalToBeMaintained] = useState();
-  const [steps,setSteps] = useState(0);
+  const [steps, setSteps] = useState(0);
 
   const months = [
     'January',
@@ -26,13 +27,11 @@ const Home = () => {
     'October',
     'November',
     'December',
-  ]
+  ];
 
   useEffect(() => {
     getSteps();
   }, []);
-
- 
 
   const getSteps = async () => {
     const options = {
@@ -64,9 +63,10 @@ const Home = () => {
       endDate: today.toISOString(),
     };
     const res = await googleFit.getDailyStepCountSamples(opt);
-    setSteps(res[2].rawSteps[0].steps)
+    setSteps(res[2].rawSteps[0].steps);
     const cal = await googleFit.getDailyCalorieSamples(opt);
-    setCalories(cal[0].calorie);
+    const calo = Math.round(cal[0].calorie)
+    setCalories(calo);
   };
 
   return (
@@ -83,6 +83,7 @@ const Home = () => {
           <Text style={styles.trackButtonText}>Track your activity</Text>
         </TouchableOpacity>
       </View>
+
       <Text style={styles.todaysCal}>{steps} Kcal</Text>
       <Text style={styles.calText}>Total Kilocalories</Text>
       <View style={styles.analyticsBar}>
@@ -96,32 +97,19 @@ const Home = () => {
         <Progressbar
           pro={0.9}
           pro1={0.9}
-          title={'Distance'}
+          title={'Steps'}
           value={'3550'}
           units={'m'}
         />
         <Progressbar
           pro={0.9}
           pro1={0.9}
-          title={'Distance'}
-          value={'3550'}
-          units={'m'}
-        />
-        <Progressbar
-          pro={0.9}
-          pro1={0.9}
-          title={'Distance'}
-          value={'3550'}
-          units={'m'}
-        />
-        <Progressbar
-          pro={0.9}
-          pro1={0.9}
-          title={'Distance'}
+          title={'Points'}
           value={'3550'}
           units={'m'}
         />
       </View>
+      <HomeCard steps={steps} cal={calories}/>
     </View>
   );
 };
@@ -205,6 +193,6 @@ const styles = StyleSheet.create({
   },
   analyticsBar: {
     flexDirection: 'row',
-    marginTop: '15%',
+    marginTop: '8%',
   },
 });

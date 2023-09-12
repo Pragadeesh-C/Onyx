@@ -5,12 +5,12 @@ import { DatePicker, Picker } from 'react-native-wheel-pick';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Routes } from 'routes/Routes';
 
-const Height = ({ route }) => {
+const FoodPreference = ({ route }) => {
   const { navigate } = useNavigation();
   const {age,weight} = route.params;
 
-  const pickerData = Array.from({length:250},(_,index) => (index+1).toString())
-  const [height, setHeight] = useState<number>(100);
+  const pickerData = ['Vegetarian', 'Non-Vegetarian'];
+  const [food, setFood] = useState();
 
   return (
     <View style={styles.container}>
@@ -25,12 +25,12 @@ const Height = ({ route }) => {
           selectLineColor='#34CE6C'
           selectLineSize={10}
           pickerData={pickerData}
-          onValueChange={(value) => { setHeight(value) }}
+          onValueChange={(value) => { setFood(value) }}
         />
       </View>
-      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.FoodPreference , {
+      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Goal , {
         ...route.params,
-        'height': height/100
+        'foodPreference':food
       } )}>
         <Text style={styles.buttonText}>Next</Text>
         <MaterialIcons name='arrow-right' size={20} color={'white'} />
@@ -39,7 +39,7 @@ const Height = ({ route }) => {
   );
 };
 
-export default Height;
+export default FoodPreference;
 
 const styles = StyleSheet.create({
   container: {

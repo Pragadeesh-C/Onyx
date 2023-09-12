@@ -3,10 +3,14 @@ import React, {useEffect, useState} from 'react';
 import RatingComponent from 'components/RatingComponent';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from 'routes/Routes';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth';
 
-const WorkoutPrompt = () => {
+const WorkoutPrompt = ({route}) => {
   const {navigate} = useNavigation();
-  const [response, setResponse] = useState();
+  const {body, category, todaysWorkout, workout,selectedLevel} = route.params;
+  console.log(body,category,todaysWorkout,workout);
+
   const Data = [
     {
       label: "How's your body feeling?",
@@ -20,7 +24,7 @@ const WorkoutPrompt = () => {
   ];
 
   const getReps = async () => {
-    await fetch('http://192.168.29.101:3000/trainer', {
+    await fetch('http://192.168.147.18:3000/trainer', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
@@ -29,8 +33,8 @@ const WorkoutPrompt = () => {
       body: JSON.stringify({
         sleep: sleepRating['value'],
         recovery: muscleRating['value'],
-        body: 1,
-        category: 0,
+        body: body,
+        category: category,
       }),
     })
       .then(res => res.json())
@@ -40,19 +44,11 @@ const WorkoutPrompt = () => {
           reps: resp['reps'],
           sets: resp['sets'],
           weights: resp['weights'],
+          category: todaysWorkout,
+          currentCategory: workout,
+          selectedLevel:selectedLevel
         });
-      })
-      // .then(() => {
-      //   setTimeout(() => {
-      //     console.log(response);
-      //     navigate(Routes.WorkoutStart, {
-      //       duration: response['duration'],
-      //       reps: response['reps'],
-      //       sets: response['sets'],
-      //       weights: response['weights'],
-      //     });
-      //   }, 1000);
-      // });
+      });
   };
 
   const [bodyRating, setBodyRating] = useState(null);

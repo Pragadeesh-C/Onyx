@@ -15,6 +15,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Workout from 'container/Workouts';
 import NutritionSuggestion from 'container/NutritionSuggestions';
 import TopTabNavigator from 'navigation/TopTabNavigator';
+import FontAwesome6 from 'react-native-vector-icons/FontAwesome6'
 
 const BottomTabNavigator = () => {
   const Tab = createBottomTabNavigator();
@@ -59,7 +60,7 @@ const BottomTabNavigator = () => {
         options={{
           headerShown: false,
           tabBarIcon: ({color, size}) => (
-            <AntDesign name="home" size={size} color={color} />
+            <FontAwesome6 name="bowl-food" size={size} color={color} />
           ),
         }}
       />

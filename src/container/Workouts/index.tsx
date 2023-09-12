@@ -1,23 +1,107 @@
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import TrainingLevel from 'components/TrainingLevel';
 import {IMAGES} from 'images/images';
 import {useNavigation} from '@react-navigation/native';
 import {Routes} from 'routes/Routes';
+import firestore from '@react-native-firebase/firestore';
+import auth from '@react-native-firebase/auth'
 
 const Workout = () => {
   const navigation = useNavigation();
+  const [category, setCategory] = useState();
+  const [body, setBody] = useState();
+  const [workout, setWorkout] = useState();
+  const [todaysWorkout, setTodaysWorkout] = useState();
+  const user = auth().currentUser.email;
+  const [selectedLevel, setSelectedLevel] = useState('Intermediate');
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const schedule = {
+    Monday: 'Circuit',
+    Tuesday: 'UpperBody',
+    Wednesday: 'LowerBody',
+    Thursday: 'Circuit',
+    Friday: 'UpperBody',
+    Saturday: 'LowerBody',
+    Sunday: 'Rest Day',
+  };
+
+  const workoutSchedule = {
+    Monday: 'Circuit',
+    Tuesday: 'Upper Body',
+    Wednesday: 'Lower Body',
+    Thursday: 'Circuit',
+    Friday: 'Upper Body',
+    Saturday: 'Lower Body',
+    Sunday: 'Rest Day',
+  };
+
+  const fetchData = async () => {
+    const data = await firestore().collection('UsersData').doc(user).get();
+    const goal = data._data.goal;
+    console.log("Goal",goal)
+    let category;
+    if (goal === 'Lose Weight') {
+      setCategory(1);
+    } else if (goal === 'Gain Weight') {
+      setCategory(0);
+    } else if (goal === 'Get Fitter') {
+      setCategory(2);
+    } else {
+      category = -1;
+    }
+    const currentDate = new Date();
+    const daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    const currentDayName = daysOfWeek[currentDate.getDay()];
+    const currentCategory = schedule[currentDayName] || 'Rest Day';
+    const currentWorkout = workoutSchedule[currentDayName] || 'Rest Day';
+    setTodaysWorkout(currentWorkout);
+    setWorkout(currentCategory);
+    if (currentCategory === 'UpperBody') {
+      setBody(1);
+    } else if (currentCategory === 'LowerBody') {
+      setBody(0);
+    } else if (currentCategory === 'Circuit') {
+      setBody(0);
+    } else {
+      setBody(2);
+    }
+  };
+  console.log(selectedLevel)
+
   return (
     <View style={styles.container}>
       <Text style={styles.headerDesc}>Too much protein? no whey, mate!</Text>
       <Text style={styles.headerText}>Choose Your Level 🔥 </Text>
       <Text style={styles.headerWeek}>Week 3, day 1</Text>
       <Image source={IMAGES.workoutbg} style={styles.semiCircle} />
-      <TrainingLevel />
-      {/* <View style={styles.bottomView}> */}
+      <TrainingLevel setLevel={setSelectedLevel} selectedLevel={selectedLevel} />
       <TouchableOpacity
         style={styles.nextButton}
-        onPress={() => navigation.navigate(Routes.WorkoutPrompt as never)}>
+        onPress={() =>
+          navigation.navigate(
+            Routes.WorkoutPrompt
+            ,{
+              body: body,
+              category: category,
+              todaysWorkout: todaysWorkout,
+              workout: workout,
+              selectedLevel:selectedLevel
+            }
+          )
+        }>
         <Text style={{fontFamily: 'Sen-Bold', color: 'black', fontSize: 17}}>
           Readiness Check
         </Text>

@@ -1,2 +1,0 @@
-export {Training} from './Training';
-

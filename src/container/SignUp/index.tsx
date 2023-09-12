@@ -88,12 +88,7 @@ const SignUp = () => {
             Scopes.FITNESS_HEART_RATE_WRITE,
           ],
         };
-        await googleFit.authorize(options);
-        await googleFit
-          .checkIsAuthorized()
-          .then(() => {
-            console.log(googleFit.isAuthorized);
-          })
+        await googleFit.authorize(options)
           .then(() => navigate(Routes.Gender as never));
       });
   };

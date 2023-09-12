@@ -35,7 +35,7 @@ const Progressbar = ({pro, pro1, value, title,units}) => {
         }}>
         <Progress.Bar
           color="#92A3FD"
-          progress={pro}
+          progress={0.4}
           width={18}
           height={150}
           style={{

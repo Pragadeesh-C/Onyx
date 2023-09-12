@@ -5,7 +5,7 @@ import { DatePicker, Picker } from 'react-native-wheel-pick';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import { Routes } from 'routes/Routes';
 
-const Weight = ({ route }: any) => {
+const Weight = ({ route }) => {
   const { navigate } = useNavigation();
   const pickerData = Array.from({ length: 200 }, (_, index) => (index + 1).toString());
   const [weight, setWeight] = useState<number>(20);
@@ -23,13 +23,13 @@ const Weight = ({ route }: any) => {
           selectLineColor='#34CE6C'
           selectLineSize={10}
           pickerData={pickerData}
-          onValueChange={(value: React.SetStateAction<number>) => { setWeight(value) }}
+          onValueChange={(value) => { setWeight(value) }}
         />
       </View>
-      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Height as never, {
+      <TouchableOpacity style={styles.nextButton} onPress={() => navigate(Routes.Height , {
         ...route.params,
         'weight': weight
-      } as never)}>
+      } )}>
         <Text style={styles.buttonText}>Next</Text>
         <MaterialIcons name='arrow-right' size={20} color={'white'} />
       </TouchableOpacity>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Image,
   ImageBackground,
@@ -8,39 +8,28 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { IMAGES } from 'images/images';
+import {IMAGES} from 'images/images';
 import CircularProgress from 'react-native-circular-progress-indicator';
-import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import {Workouts} from 'data/workout';
+import {Routes} from 'routes/Routes';
+import {useNavigation} from '@react-navigation/native';
 
-import { Workouts } from 'data/workout'; 
-
-const StartWorkout = ({ route }) => {
-  const { duration, reps, weights, sets } = route.params;
-
-  const schedule = {
-    Monday: 'Circuit',
-    Tuesday: 'UpperBody',
-    Wednesday: 'FullBody',
-    Thursday: 'Circuit',
-    Friday: 'UpperBody',
-    Saturday: 'FullBody',
-    Sunday: 'Rest Day',
-  };
-
-  const currentDate = new Date();
-  const currentDay = 'Monday';
-
-  const currentCategory = schedule[currentDay] || 'Rest Day';
+const StartWorkout = ({route}) => {
+  const {duration, reps, weights, sets, currentCategory, category,selectedLevel} =
+    route.params;
+  const {navigate} = useNavigation();
+  console.log(selectedLevel)
 
   const currentCategoryObject = Workouts.find(
-    (category) => Object.keys(category)[0] === currentCategory
+    category => Object.keys(category)[0] === currentCategory,
   );
 
   const currentExercises = currentCategoryObject
     ? currentCategoryObject[currentCategory]
     : [];
 
-  const BoxComponent = ({ label }) => {
+  const BoxComponent = ({label}) => {
     return (
       <View style={styles.boxContainer}>
         <Text style={styles.boxHeader}>{label}</Text>
@@ -48,22 +37,53 @@ const StartWorkout = ({ route }) => {
     );
   };
 
-  const ExerciseView = ({ exercise, selectedLevel, selectedReps, selectedSets }) => {
+  const ExerciseView = ({
+    exercise,
+    selectedLevel,
+    exerciseInProgress,
+    exerciseDuration,
+    startNextExercise,
+    icon,
+    video,
+    exercises,
+  }) => {
     const selectedExercise = exercise.levels[selectedLevel];
-  
-    // Determine if this exercise matches the selected reps and sets
+    console.log(icon);
+    console.log('Exercise', exercise.levels[selectedLevel]);
     const isRecommended =
-      selectedExercise.sets === selectedSets && selectedExercise.reps === selectedReps;
-  
+      selectedExercise.sets === sets && selectedExercise.reps === reps;
+
     return (
-      <View style={[styles.exerciseView, isRecommended ? styles.recommendedExercise : null]}>
+      <View
+        style={[
+          styles.exerciseView,
+          isRecommended ? styles.recommendedExercise : null,
+        ]}>
         <View style={styles.exerciseIcon}>
-          {/* <Image source={selectedExercise.video} /> Use the video or image as needed */}
+          <Image source={icon} />
         </View>
         <View style={styles.exerciseInfo}>
           <Text style={styles.exerciseType}>{exercise.name}</Text>
-          <Text style={styles.exerciseDescription}>{selectedExercise.description}</Text>
+          <Text style={styles.exerciseDescription}>
+            {selectedExercise.description}
+          </Text>
         </View>
+        <TouchableOpacity
+          onPress={() =>
+            navigate(Routes.WorkoutVideo, {
+              url: exercise.levels[selectedLevel].video,
+              name:exercise.name,
+              desc:selectedExercise.description,
+              category:category
+            })
+          }>
+          <AntDesign
+            name="infocirlceo"
+            size={15}
+            color={'black'}
+            style={styles.infoIcon}
+          />
+        </TouchableOpacity>
         <View style={styles.setsComponent}>
           <Text
             style={{
@@ -74,18 +94,87 @@ const StartWorkout = ({ route }) => {
         {isRecommended && (
           <Text style={styles.recommendedLabel}>Recommended</Text>
         )}
+        <View style={styles.timer}>
+          {exerciseInProgress && (
+            <Text style={styles.timerText}>{exerciseDuration}s</Text>
+          )}
+        </View>
       </View>
     );
   };
-  
-  
+
+  const [exerciseIndex, setExerciseIndex] = useState(0);
+  const [playStarted, setPlayStarted] = useState(false);
+  // const [selectedLevel, setSelectedLevel] = useState('beginner');
+  const [exerciseInProgress, setExerciseInProgress] = useState(false);
+  const [exerciseTimer, setExerciseTimer] = useState(0);
+
+  const [totalProgress, setTotalProgress] = useState(0);
+  useEffect(() => {
+    if (playStarted) {
+      const currentExercise = currentExercises[exerciseIndex];
+      const selectedExercise = currentExercise.levels[selectedLevel];
+      const currentExerciseDuration = selectedExercise.sets * duration;
+
+      if (!exerciseInProgress) {
+        setExerciseInProgress(true);
+        setExerciseTimer(currentExerciseDuration);
+
+        clearInterval(timerInterval);
+
+        const timerInterval = setInterval(() => {
+          setExerciseTimer(prevTime => {
+            if (prevTime > 0) {
+              return prevTime - 1;
+            } else {
+              clearInterval(timerInterval);
+              setExerciseInProgress(false);
+
+              if (exerciseIndex < currentExercises.length - 1) {
+                setTotalProgress(prevProgress => {
+                  const exerciseProgress = 100 / currentExercises.length;
+                  return prevProgress + exerciseProgress;
+                });
+
+                startNextExercise();
+              } else {
+                setTotalProgress(100);
+              }
+            }
+          });
+        }, 1000);
+      }
+    }
+  }, [
+    playStarted,
+    exerciseIndex,
+    selectedLevel,
+    duration,
+    currentExercises,
+    exerciseInProgress,
+  ]);
+
+  const startNextExercise = () => {
+    if (exerciseIndex < currentExercises.length - 1) {
+      const nextIndex = exerciseIndex + 1;
+      setExerciseIndex(nextIndex);
+      setExerciseInProgress(false);
+      setExerciseTimer(0);
+    }
+  };
+
+  const handlePlayButtonClick = () => {
+    if (!playStarted) {
+      setPlayStarted(true);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <ImageBackground source={IMAGES.workoutBg} style={styles.bg}>
         <View style={styles.headerView}>
           <CircularProgress
-            value={80}
+            value={totalProgress}
             radius={70}
             duration={1000}
             activeStrokeWidth={20}
@@ -94,21 +183,26 @@ const StartWorkout = ({ route }) => {
             maxValue={100}
             title={'%'}
             titleColor={'black'}
-            titleStyle={{ fontWeight: 'bold' }}
+            titleStyle={{fontWeight: 'bold'}}
             activeStrokeColor="#A48AED"
             inActiveStrokeColor="white"
           />
-          <View style={{ paddingTop: '3%', flexDirection: 'row', gap: 10 }}>
-            <BoxComponent label={'Easy'} />
-            <BoxComponent label={duration} />
+          <View
+            style={{
+              paddingTop: '3%',
+              flexDirection: 'row',
+              gap: 10,
+            }}>
+            <BoxComponent label={`${weights} kg`} />
+            <BoxComponent label={`${duration} mins`} />
           </View>
-          <Text style={styles.headerTitle}>Full-Body Workout</Text>
+          <Text style={styles.headerTitle}>{category} Workout</Text>
           <Text style={styles.headerDesc}>
             Shift stubborn body fat and build muscle
           </Text>
         </View>
         <View style={styles.bottomView}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handlePlayButtonClick}>
             <Image source={IMAGES.button} style={styles.playButton} />
           </TouchableOpacity>
           <View
@@ -119,9 +213,17 @@ const StartWorkout = ({ route }) => {
             <Text style={styles.bottomHeader}>Exercises</Text>
             <Text style={styles.bottomHeader}>Sets</Text>
           </View>
-          <ScrollView style={{ flex: 1 }}>
+          <ScrollView style={{flex: 1}}>
             {currentExercises.map((exercise, index) => (
-              <ExerciseView key={index} exercise={exercise} selectedLevel="beginner" />
+              <ExerciseView
+                key={index}
+                exercise={exercise}
+                selectedLevel={selectedLevel}
+                startNextExercise={startNextExercise}
+                exerciseInProgress={exerciseIndex === index && playStarted}
+                exerciseDuration={exerciseTimer}
+                icon={IMAGES.body} // Correctly access the video URL
+              />
             ))}
           </ScrollView>
         </View>
@@ -129,9 +231,6 @@ const StartWorkout = ({ route }) => {
     </View>
   );
 };
-
-export default StartWorkout;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -149,7 +248,7 @@ const styles = StyleSheet.create({
   },
   boxContainer: {
     height: 40,
-    width: 65,
+    width: 70,
     borderRadius: 13,
     justifyContent: 'center',
     alignItems: 'center',
@@ -195,13 +294,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingTop: '4%',
+    borderBottomWidth: 1,
+    borderBottomColor: 'lightgray',
   },
-  exerciseContentView: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 20,
-    bottom: 20,
+  recommendedExercise: {
+    backgroundColor: '#FFEBE5',
   },
   exerciseIcon: {
     height: 50,
@@ -213,12 +310,7 @@ const styles = StyleSheet.create({
   },
   exerciseInfo: {
     flex: 1,
-    marginLeft:"4%"
-  },
-  exerciseNameContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
+    marginLeft: '4%',
   },
   exerciseType: {
     fontFamily: 'Sen-Bold',
@@ -238,4 +330,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  recommendedLabel: {
+    fontFamily: 'Sen-Bold',
+    color: 'red',
+  },
+  timer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    bottom: 10,
+    left: 6,
+  },
+  timerText: {
+    color: 'black',
+    fontFamily: 'Sen-Bold',
+    fontSize: 16,
+  },
+  infoIcon: {
+    padding: 10,
+  },
 });
+
+export default StartWorkout;

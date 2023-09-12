@@ -1,25 +1,81 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import React from 'react';
-import { IMAGES } from 'images/images';
-import { Svg, SvgUri } from 'react-native-svg';
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-const TrainingLevel = () => {
+const TrainingLevel = ({selectedLevel,setLevel}) => {
+  const workoutSchedule = {
+    Monday: 'Circuit',
+    Tuesday: 'Upper Body',
+    Wednesday: 'Lower Body',
+    Thursday: 'Circuit',
+    Friday: 'Upper Body',
+    Saturday: 'Lower Body',
+    Sunday: 'Rest Day',
+  };
+  const daysOfWeek = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+
+  const currentDate = new Date();
+  const currentDayName = daysOfWeek[currentDate.getDay()];
+  const currentWorkout = workoutSchedule[currentDayName] || 'Rest Day';
+  const [desc, setdesc] = useState(
+    'Challenging mix of cardio and strength, ideal for those pastbeginner-level fitness seeking health improvement.',
+  );
+  const beginer = () => {
+    setLevel('Beginner');
+    setdesc(
+      'Beginner workouts are for fitness newcomers. They focus on simple exercises and gradual progress for building strength and stamina.',
+    );
+  };
+  const intermediate = () => {
+    setLevel('Intermediate');
+    setdesc(
+      'Challenging mix of cardio and strength, ideal for those pastbeginner-level fitness seeking health improvement.',
+    );
+  };
+  const advanced = () => {
+    setLevel('Advanced');
+    setdesc(
+      'Advanced workouts are for experienced fitness enthusiasts. They feature challenging exercises and intensity to further enhance strength, endurance, and performance.',
+    );
+  };
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={beginer} style={{top: 170, left: 30}}>
+        <FontAwesome5 name={'dumbbell'} color={'black'} size={20} />
+      </TouchableOpacity>
       <View style={styles.circle1}>
         <View style={styles.circle2}>
-          {/* <SvgUri width={200} height={200} uri={IMAGES.intermediate} /> */}
-          <Image source={IMAGES.intermediate}/>
+          <TouchableOpacity onPress={intermediate}>
+            <MaterialCommunityIcons
+              name={'arm-flex'}
+              color={'black'}
+              style={{fontSize: 49, color: '#A48AED'}}
+            />
+          </TouchableOpacity>
         </View>
       </View>
+      <TouchableOpacity onPress={advanced} style={{left: 340, top: 145}}>
+        <MaterialCommunityIcons
+          name={'weight-lifter'}
+          color={'black'}
+          style={{fontSize: 29}}
+        />
+      </TouchableOpacity>
+
       <View style={styles.bottomView}>
-        <Text style={styles.trainingLevelText}>Intermediate</Text>
-        <Text style={styles.desc}>
-          Challenging mix of cardio and strength, ideal for those past
-          beginner-level fitness seeking health improvement.
-        </Text>
+        <Text style={styles.trainingLevelText}>{selectedLevel}</Text>
+        <Text style={styles.desc}>{desc}</Text>
         <TouchableOpacity style={styles.upperButton}>
-          <Text style={styles.buttonText}>Upper Body</Text>
+          <Text style={styles.buttonText}>{currentWorkout}</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -57,6 +113,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 100,
     position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   bottomView: {
     flex: 1,

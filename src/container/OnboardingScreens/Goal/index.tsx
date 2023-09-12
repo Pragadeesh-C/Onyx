@@ -8,12 +8,12 @@ import auth from '@react-native-firebase/auth';
 import googleFit from 'react-native-google-fit';
 import {Routes} from 'routes/Routes';
 
-const Goal = ({route}: any) => {
+const Goal = ({route}) => {
   const {navigate} = useNavigation();
-  let {gender, age, weight, height} = route.params;
+  let {gender, age, weight, height,foodPreference} = route.params;
   const [bmi, setBMI] = useState<number | null>(null);
   const [bmr, setBMR] = useState<number | null>(null);
-  const [goal, setGoal] = useState<string | undefined>();
+  const [goal, setGoal] = useState();
   const [calToBeMaintained, setCalToBeMaintained] = useState();
 
   const user = auth().currentUser.email;
@@ -24,7 +24,6 @@ const Goal = ({route}: any) => {
   useEffect(() => {
     pushMetrics();
     calculateMetrics();
-    caloriesCal();
   }, []);
 
   const getCal = async () => {
@@ -54,29 +53,59 @@ const Goal = ({route}: any) => {
     const activityLevel = Math.random() + 1;
     let heightInCm = height * 100;
     let Gender = gender === 'male' ? 0 : 1;
-    const getCal = async () => {
-      await fetch('http://192.168.29.101:3000/diet', {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          age: 19,
-          height: 178,
-          weight: 58,
-          gender: 0,
-          bmi: 18.3,
-          bmr: 980,
-          activity_level: 1.5,
-        }),
-      })
-        .then(res => res.json())
-        .then(resp => {
-          setCalToBeMaintained(resp['prediction']);
-        });
-    };
+    await fetch('http://192.168.29.101:3000/diet', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        age: age,
+        height: heightInCm,
+        weight: weight,
+        gender: Gender,
+        bmi: bmi,
+        bmr: bmr,
+        activity_level: activityLevel,
+      }),
+    })
+      .then(res => res.json())
+      .then(resp => {
+        console.log(resp);
+        const prediction = resp['prediction'];
+        setCalToBeMaintained(resp['prediction']);
+        pushData(prediction);
+      });
   };
+  
+  const pushData = async (calMaintained) => {
+    console.log(
+      user,
+      gender,
+      age,
+      weight,
+      height,
+      goal,
+      bmi,
+      bmr,
+      calToBeMaintained,
+    );
+    await firestore().collection('UsersData').doc(user).set({
+      email: user,
+      gender: gender,
+      age: age,
+      weight: weight,
+      height: height,
+      goal: goal,
+      bmi: bmi,
+      bmr: bmr,
+      calEst: calMaintained,
+      foodPreference:foodPreference
+    });
+  
+    navigate('Tabs');
+  };
+  
 
   const pushMetrics = () => {
     const parsedHeight = parseFloat(height);
@@ -109,7 +138,7 @@ const Goal = ({route}: any) => {
   const calculateMetrics = async () => {
     setIsLoading(true);
 
-    const heightInMeters = height / 100; // Convert height to meters
+    const heightInMeters = height / 100;
     const parsedWeight = parseFloat(weight);
     const parsedAge = parseFloat(age);
 
@@ -148,47 +177,6 @@ const Goal = ({route}: any) => {
     }
 
     setIsLoading(false);
-
-    if (bmi !== undefined && bmr !== undefined) {
-      pushData();
-    }
-  };
-
-  const pushData = async () => {
-    await getCal();
-    if (
-      user &&
-      gender &&
-      age &&
-      weight &&
-      height &&
-      goal !== undefined &&
-      bmi !== null &&
-      bmr !== null
-    ) {
-      await firestore()
-        .collection('UsersData')
-        .doc(user)
-        .set({
-          email: user,
-          gender: gender,
-          age: age,
-          weight: weight,
-          height: height,
-          goal: goal,
-          bmi: bmi,
-          bmr: bmr,
-          calEst: calToBeMaintained,
-        })
-        .then(() => {
-          navigate(Routes.Tabs); // Replace with your next screen
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    } else {
-      console.log('One or more required values are undefined.');
-    }
   };
 
   return (
@@ -211,12 +199,12 @@ const Goal = ({route}: any) => {
           selectLineColor="#34CE6C"
           selectLineSize={10}
           pickerData={pickerData}
-          onValueChange={(value: React.SetStateAction<string | undefined>) => {
+          onValueChange={(value) => {
             setGoal(value);
           }}
         />
       </View>
-      <TouchableOpacity style={styles.nextButton} onPress={pushData}>
+      <TouchableOpacity style={styles.nextButton} onPress={caloriesCal}>
         <Text style={styles.buttonText}>Next</Text>
         <MaterialIcons name="arrow-right" size={20} color={'white'} />
       </TouchableOpacity>

@@ -16,7 +16,6 @@ const TopTabNavigator = () => {
       <TopTab.Screen name={Routes.Lunch} component={NutritionSuggestion} />
       <TopTab.Screen name={Routes.Snacks} component={NutritionSuggestion} />
       <TopTab.Screen name={Routes.Dinner} component={NutritionSuggestion} />
-
     </TopTab.Navigator>
   );
 };

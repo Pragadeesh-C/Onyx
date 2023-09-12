@@ -4,18 +4,17 @@ import FoodAnalytics from 'components/FoodAnalytics';
 import Octicons from 'react-native-vector-icons/Octicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-interface FoodBoxProps{
-    title:String;
-}
 
-const FoodBox = ({title}:FoodBoxProps) => {
+
+const FoodBox = ({ title, analytics = {} }) => {
+  console.log(analytics,"a")
   return (
     <View style={styles.box}>
       <Text style={styles.headerText}>{title}</Text>
       <View
-        style={{gap: 10, flexDirection: 'row', justifyContent: 'space-evenly'}}>
+        style={{ gap: 10, flexDirection: 'row', justifyContent: 'space-evenly' }}>
         <FoodAnalytics
-          style={{borderRightWidth: 1, borderRightColor: 'gray'}}
+          style={{ borderRightWidth: 1, borderRightColor: 'gray' }}
           icon={
             <Octicons
               name="star"
@@ -26,19 +25,24 @@ const FoodBox = ({title}:FoodBoxProps) => {
               }}
             />
           }
-          amount="4.4"
+          amount={analytics.rating || 0}
           metrics="/5.0"
           headerText="Evaluation"
         />
         <FoodAnalytics
-          style={{borderRightWidth: 1, borderRightColor: 'gray'}}
+          style={{ borderRightWidth: 1, borderRightColor: 'gray' }}
           icon={
-            <MaterialCommunityIcons name="fire" size={25} color={'black'} style={{
+            <MaterialCommunityIcons
+              name="fire"
+              size={25}
+              color={'black'}
+              style={{
                 paddingTop: '4%',
-              }} />
+              }}
+            />
           }
           headerText="Calories"
-          amount="360"
+          amount={analytics?.calories || 0}
           metrics="cKal"
         />
         <FoodAnalytics
@@ -52,14 +56,15 @@ const FoodBox = ({title}:FoodBoxProps) => {
               }}
             />
           }
-          headerText="Evaluation"
-          amount="0.4"
-          metrics="Litres"
+          headerText="Protein"
+          amount={analytics?.protein || 0}
+          metrics="g"
         />
       </View>
     </View>
   );
 };
+
 
 export default FoodBox;
 

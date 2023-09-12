@@ -11,6 +11,7 @@ const FoodCardComponent = ({
   protein,
   carbs,
   fat,
+  schedule
 }) => {
   const {navigate} = useNavigation();
   return (
@@ -18,7 +19,7 @@ const FoodCardComponent = ({
       style={styles.box}
       onPress={() =>
         navigate(
-          Routes.Nutrients as never,
+          Routes.Nutrients,
           {
             name: name,
             imageUrl: imageUrl,
@@ -27,7 +28,8 @@ const FoodCardComponent = ({
             protein: protein,
             carbs: carbs,
             fat: fat,
-          } as never,
+            schedule:schedule
+          },
         )
       }>
       <Image source={imageUrl} style={styles.img} />

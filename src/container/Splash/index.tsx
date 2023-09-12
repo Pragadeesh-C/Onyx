@@ -17,11 +17,6 @@ const Splash = () => {
       // console.log(granted,"granted")
   }
 
-  const timeOut = () => {
-    setTimeout(() => {
-      navigate(Routes.SignUp as never);
-    }, 2000);
-  };
 
   const isSignedIn = async () => {
     auth().onAuthStateChanged(user => {

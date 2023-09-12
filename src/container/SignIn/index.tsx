@@ -12,7 +12,7 @@ const SignIn = () => {
 
     const SignIn = async() => {
         await auth().signInWithEmailAndPassword(email,password).then(() => {
-            navigate(Routes.Tabs as never) 
+            navigate(Routes.Tabs) 
         }).catch((error) => {
             console.log(error)
         })
@@ -46,7 +46,7 @@ const SignIn = () => {
             </View>
             <View style={styles.foot}>
                 <Text style={styles.footText}>Don't have an account?</Text>
-                <TouchableOpacity onPress={() => navigate(Routes.SignUp as never)}>
+                <TouchableOpacity onPress={() => navigate(Routes.SignUp)}>
                     <Text style={styles.footButtonText}>Register</Text>
                 </TouchableOpacity>
             </View>
