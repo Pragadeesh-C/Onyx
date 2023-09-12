@@ -18,7 +18,7 @@ const FoodPreference = ({ route }) => {
       <Text style={styles.headerDesc}>you can always change this later</Text>
       <View style={{ height: '70%', justifyContent: 'center' }}>
         <Picker
-          style={{ backgroundColor: '#F6F6F6', width: 70, height: 350, fontFamily: 'IntegralCF-Bold' }}
+          style={{ backgroundColor: '#F6F6F6', width: 200, height: 350, fontFamily: 'IntegralCF-Bold' }}
           selectTextColor='green'
           isShowSelectBackground={false}
           selectedValue='100'

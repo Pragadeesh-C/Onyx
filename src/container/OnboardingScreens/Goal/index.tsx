@@ -53,7 +53,7 @@ const Goal = ({route}) => {
     const activityLevel = Math.random() + 1;
     let heightInCm = height * 100;
     let Gender = gender === 'male' ? 0 : 1;
-    await fetch('http://192.168.29.101:3000/diet', {
+    await fetch('http://192.168.180.18:3000/diet', {
       method: 'POST',
       headers: {
         Accept: 'application/json',

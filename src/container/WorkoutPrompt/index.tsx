@@ -24,7 +24,7 @@ const WorkoutPrompt = ({route}) => {
   ];
 
   const getReps = async () => {
-    await fetch('http://192.168.147.18:3000/trainer', {
+    await fetch('http://192.168.180.18:3000/trainer', {
       method: 'POST',
       headers: {
         Accept: 'application/json',
